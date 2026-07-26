@@ -982,7 +982,7 @@ export default function ResumePage() {
                   <tr><td colSpan={2} className="border-b border-l border-r border-black px-1 font-bold border-t-0" style={{ height: `${projectTitleHeightPx}px`, verticalAlign: 'middle' }}><span className="outline-none" contentEditable suppressContentEditableWarning onKeyDown={handleKeyDown} onBlur={(e) => updateBlockField(intern.id, 'title', e.currentTarget.innerHTML)} dangerouslySetInnerHTML={{__html: intern.title}}/></td></tr>
                   <tr className="group/row relative">
                     <td className="bg-[#dedede] border border-black px-1 text-center font-bold align-middle leading-tight">Project Details</td>
-                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                       <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                         {(intern.details || []).map((pt: any, bIdx: number) => {
                           if (pt.hidden && !showHiddenPoints) return null;
@@ -1000,7 +1000,7 @@ export default function ResumePage() {
                   </tr>
                   <tr>
                     <td className="bg-[#dedede] border border-black px-1 text-center font-bold align-middle leading-tight">Achievements</td>
-                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                       <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                         {(intern.achievements || []).map((pt: any, bIdx: number) => {
                           if (pt.hidden && !showHiddenPoints) return null;
@@ -1046,7 +1046,7 @@ export default function ResumePage() {
                   </tr>
                   <tr className="group/row relative">
                     <td className="bg-[#dedede] border border-black px-1 text-center font-bold align-middle leading-tight">Project Details</td>
-                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                       <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                         {(proj.details || []).map((pt: any, bIdx: number) => {
                           if (pt.hidden && !showHiddenPoints) return null;
@@ -1064,7 +1064,7 @@ export default function ResumePage() {
                   </tr>
                   <tr>
                     <td className="bg-[#dedede] border border-black px-1 text-center font-bold align-middle leading-tight">Achievements</td>
-                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                    <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                       <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                         {(proj.achievements || []).map((pt: any, bIdx: number) => {
                           if (pt.hidden && !showHiddenPoints) return null;
@@ -1098,7 +1098,7 @@ export default function ResumePage() {
                     <div draggable onDragStart={(e) => onBlockDragStart(e, por.id)} className="no-print absolute -left-6 top-1/2 -translate-y-1/2 cursor-move opacity-0 group-hover/drag:opacity-100 bg-blue-100 text-blue-800 px-1 py-0.5 rounded shadow text-xs" title="Drag back to Library">⠿</div>
                     <span className="outline-none" contentEditable suppressContentEditableWarning onKeyDown={handleKeyDown} onBlur={(e) => updateBlockField(por.id, 'role', e.currentTarget.innerHTML)} dangerouslySetInnerHTML={{__html: por.role}}/>
                   </td>
-                  <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                  <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                     <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                       {(por.bullets || []).map((pt: any, bIdx: number) => {
                         if (pt.hidden && !showHiddenPoints) return null;
@@ -1134,7 +1134,7 @@ export default function ResumePage() {
                     <div draggable onDragStart={(e) => onBlockDragStart(e, award.id)} className="no-print absolute -left-6 top-1/2 -translate-y-1/2 cursor-move opacity-0 group-hover/drag:opacity-100 bg-blue-100 text-blue-800 px-1 py-0.5 rounded shadow text-xs" title="Drag back to Library">⠿</div>
                     <span className="outline-none" contentEditable suppressContentEditableWarning onKeyDown={handleKeyDown} onBlur={(e) => updateBlockField(award.id, 'category', e.currentTarget.innerHTML)} dangerouslySetInnerHTML={{__html: award.category}}/>
                   </td>
-                  <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '0px' }}>
+                  <td className="border border-black pl-[2px] align-top relative" style={{ paddingTop: `${padBulletCellTopPx}px`, paddingBottom: `${padBulletCellBottomPx}px`, paddingRight: '2.5px' }}>
                     <div className="m-0 flex flex-col" style={{ gap: `${bulletGapPx}px` }}>
                       {(award.bullets || []).map((pt: any, bIdx: number) => {
                         if (pt.hidden && !showHiddenPoints) return null;
