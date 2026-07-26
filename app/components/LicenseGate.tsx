@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function LicenseGate({ children }: { children: React.ReactNode }) {
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -10,6 +11,7 @@ export default function LicenseGate({ children }: { children: React.ReactNode })
   const [key, setKey] = useState('');
   const [error, setError] = useState('');
   const [verifying, setVerifying] = useState(false);
+  const [agreed, setAgreed] = useState(false);
 
   // The Boot Check: Runs every single time the app opens
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function LicenseGate({ children }: { children: React.ReactNode })
 
   const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!key.trim()) return;
+    if (!key.trim() || !agreed) return;
     
     setVerifying(true);
     setError('');
@@ -136,10 +138,26 @@ export default function LicenseGate({ children }: { children: React.ReactNode })
             </div>
           )}
 
+          <div className="flex items-start gap-3 pt-2">
+            <input
+              type="checkbox"
+              id="privacy-policy"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+              className="mt-1 w-4 h-4 rounded border-gray-700 bg-gray-950 text-blue-600 focus:ring-blue-500 focus:ring-offset-gray-900 cursor-pointer"
+            />
+            <label htmlFor="privacy-policy" className="text-xs text-gray-400 leading-relaxed cursor-pointer">
+              By using this application, you agree to the{' '}
+              <Link href="/privacy" className="text-blue-400 hover:text-blue-300 underline transition-colors">
+                Privacy Policy & Terms of Service
+              </Link>
+            </label>
+          </div>
+
           <button
             type="submit"
-            disabled={verifying || !key.trim()}
-            className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 disabled:text-blue-300 text-white font-bold rounded-lg px-4 py-3 transition-colors flex items-center justify-center gap-2"
+            disabled={verifying || !key.trim() || !agreed}
+            className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 disabled:text-blue-400 disabled:cursor-not-allowed text-white font-bold rounded-lg px-4 py-3 transition-all flex items-center justify-center gap-2"
           >
             {verifying ? (
               <>
