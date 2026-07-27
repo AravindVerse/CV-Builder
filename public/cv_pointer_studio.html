@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV Pointer Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  .cvfont{ font-family:"EB Garamond", Garamond, "Cormorant Garamond", serif;
+           font-variant-ligatures:none; font-kerning:none; font-feature-settings:"liga" 0,"clig" 0,"kern" 0; }
+  .cvfont b, .cvfont strong{ font-weight:700; }
+  body{ margin:0; background:#0b1220; color:#e5e7eb; font-family:"Inter",system-ui,sans-serif; }
+  .wrap{ max-width:860px; margin:0 auto; padding:20px 16px 70px; }
+  h1{ font-size:19px; margin:0 0 2px; } h1 span{ color:#64748b; font-weight:400; }
+  .sub{ color:#94a3b8; font-size:12.5px; margin:0 0 16px; }
+  .card{ background:#111a2e; border:1px solid #1e293b; border-radius:12px; padding:16px; margin-bottom:14px; }
+  label{ font-size:12px; color:#94a3b8; display:block; margin:10px 0 4px; font-weight:500; }
+  textarea, input[type=text], select{ width:100%; background:#0b1220; color:#e5e7eb; border:1px solid #334155;
+    border-radius:8px; padding:9px 11px; font-size:13px; font-family:inherit; }
+  textarea{ resize:vertical; }
+  .grid3{ display:grid; grid-template-columns: 1.3fr 1fr auto; gap:10px; align-items:end; }
+  @media(max-width:720px){ .grid3{ grid-template-columns:1fr; } }
+  .seg{ display:inline-flex; background:#0b1220; border:1px solid #334155; border-radius:9px; padding:3px; gap:3px; width:100%; }
+  .seg button{ flex:1; border:0; background:transparent; color:#94a3b8; padding:7px 10px; border-radius:7px; font-weight:600; font-size:12px; cursor:pointer; }
+  .seg button.on{ background:#2563eb; color:#fff; }
+  .btn{ font-family:inherit; font-weight:700; border:0; border-radius:8px; padding:9px 13px; background:#2563eb; color:#fff; cursor:pointer; font-size:12.5px; white-space:nowrap; }
+  .btn.ghost{ background:#1e293b; color:#cbd5e1; } .btn.act{ padding:10px 16px; font-size:13px; }
+  .btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .mini{ font-size:11px; font-weight:700; border:0; border-radius:6px; padding:5px 9px; cursor:pointer; background:#1e293b; color:#cbd5e1; }
+  .row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  /* hero */
+  .hero{ background:linear-gradient(180deg,#0f1a30,#111a2e); border:1px solid #24324a; border-radius:12px; padding:16px; }
+  .pointer{ font-size:13px; line-height:1; min-height:34px; background:#fff; color:#000; border-radius:8px; padding:8px 10px; outline:none; border:2px solid transparent; }
+  .pointer:focus{ border-color:#3b82f6; }
+  .track{ position:relative; height:26px; border-radius:8px; background:#1e293b; overflow:hidden; margin-top:12px; }
+  .zone{ position:absolute; top:0; bottom:0; background:rgba(34,197,94,.22); border-left:1px dashed #22c55e; border-right:1px dashed #22c55e; }
+  .fill{ position:absolute; left:0; top:0; bottom:0; width:0%; border-radius:8px 0 0 8px; transition:width .1s, background .1s; }
+  .limit{ position:absolute; top:-3px; bottom:-3px; width:2px; background:#f8fafc; opacity:.85; }
+  .limit::after{ content:"100%"; position:absolute; top:-15px; left:-13px; font-size:9px; color:#cbd5e1; }
+  .readout{ display:flex; justify-content:space-between; align-items:baseline; margin-top:10px; }
+  .big{ font-size:30px; font-weight:800; letter-spacing:-.5px; font-variant-numeric:tabular-nums; }
+  .verdict{ font-size:13px; font-weight:700; } .px{ color:#94a3b8; font-size:12px; }
+  .ok{ color:#22c55e; } .warn{ color:#f59e0b; } .bad{ color:#ef4444; } .cool{ color:#60a5fa; }
+  /* linter chips */
+  .chips{ display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+  .chip{ font-size:11px; font-weight:600; border-radius:20px; padding:4px 10px; cursor:pointer; border:1px solid #334155; background:#0b1220; color:#cbd5e1; }
+  .chip.swap{ border-color:#3b82f6aa; color:#93c5fd; } .chip.filler{ border-color:#ef4444aa; color:#fca5a5; }
+  .chip.jar{ border-color:#22c55e55; color:#86efac; } .chip:hover{ filter:brightness(1.2); }
+  .chip .a{ opacity:.6 } .chip b{ color:#fff }
+  /* candidates */
+  .cand{ background:#0b1220; border:1px solid #24324a; border-radius:10px; padding:10px 12px; margin-top:10px; }
+  .cand.best{ border-color:#22c55e; box-shadow:0 0 0 1px #22c55e33; }
+  .cand .txt{ background:#fff; color:#000; border-radius:6px; padding:6px 8px 6px 22px; font-size:13px; line-height:1.15; position:relative; }
+  .cand .txt::before{ content:""; position:absolute; left:9px; top:8px; width:4px; height:4px; background:#000; }
+  .ctrack{ position:relative; height:8px; border-radius:5px; background:#1e293b; overflow:hidden; margin:8px 0 6px; }
+  .czone{ position:absolute; top:0; bottom:0; background:rgba(34,197,94,.25); } .cfill{ position:absolute; left:0; top:0; bottom:0; }
+  .badge{ font-size:11px; font-weight:800; } .tag{ font-size:10px; font-weight:800; padding:1px 6px; border-radius:20px; background:#052e16; color:#4ade80; } .tag.trim{ background:#2a1704; color:#fbbf24; }
+  .log{ font-family:ui-monospace,monospace; font-size:11px; background:#05080f; color:#7dd3fc; border:1px solid #1e293b; border-radius:8px; padding:9px; margin-top:10px; max-height:150px; overflow:auto; white-space:pre-wrap; }
+  .hint{ font-size:11px; color:#64748b; margin-top:6px; }
+  .flag{ font-size:12px; border-radius:8px; padding:8px 10px; margin-top:8px; border:1px solid; }
+  .flag.bad{ background:#2a0f0f; border-color:#7f1d1d; color:#fecaca; }
+  .flag.warn{ background:#2a1704; border-color:#78350f; color:#fde68a; }
+  .flag.ok{ background:#052e16; border-color:#166534; color:#bbf7d0; }
+  .fixline{ margin-top:6px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .fixline .cvfont{ background:#fff; color:#000; padding:3px 6px; border-radius:5px; }
+  /* modal */
+  .modal{ position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; padding:16px; z-index:50; }
+  .modal.on{ display:flex; } .sheet{ background:#0f1728; border:1px solid #24324a; border-radius:14px; padding:18px; width:min(560px,96vw); max-height:90vh; overflow:auto; }
+  .prow{ display:grid; grid-template-columns: 130px 1fr 130px; gap:8px; align-items:center; margin-bottom:8px; }
+  @media(max-width:560px){ .prow{ grid-template-columns:1fr; } }
+  .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; background:#475569; } .dot.on{ background:#22c55e; }
+  .free{ font-size:9px; font-weight:800; color:#4ade80; border:1px solid #22c55e55; border-radius:10px; padding:0 5px; margin-left:6px; }
+  .paid{ font-size:9px; font-weight:800; color:#fbbf24; border:1px solid #f59e0b55; border-radius:10px; padding:0 5px; margin-left:6px; }
+  .toast{ position:fixed; bottom:18px; left:50%; transform:translateX(-50%); background:#1e293b; color:#e5e7eb; padding:8px 14px; border-radius:20px; font-size:12px; font-weight:600; opacity:0; transition:opacity .2s; pointer-events:none; }
+  .toast.on{ opacity:1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CV Pointer Studio <span>· domain-aware · multi-model · 97–100% fit</span></h1>
+  <p class="sub">Line width measured from your exact <code>page.tsx</code> cell. Rewrites the same achievement with domain jargon in your chosen framework, filling 97–100% of the line, across any model with auto-failover.</p>
+
+  <!-- CONTROLS -->
+  <div class="card">
+    <div class="grid3">
+      <div><label style="margin-top:0">Domain</label><select id="domain"></select></div>
+      <div><label style="margin-top:0">Framework</label>
+        <div class="seg" id="fw">
+          <button class="on" data-fw="ras" title="Result → Action → Situation">RAS</button>
+          <button data-fw="star" title="Situation → Task → Action → Result">STAR</button>
+        </div></div>
+      <div><label style="margin-top:0">&nbsp;</label><button class="btn ghost" id="editJargon">✎ Jargon list</button></div>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <div class="seg" id="sec" style="max-width:340px">
+        <button class="on" data-sec="det">Internship / Project details</button>
+        <button data-sec="por">P.O.R / Awards</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="row" style="justify-content:space-between">
+      <b style="font-size:13px">Pointer to rewrite</b>
+      <span class="row" style="gap:6px"><button class="mini" id="defBtn">🛡 Defensibility</button><button class="mini" id="boldBtn"><b>B</b> bold selection</button><button class="mini" id="saveBtn" style="background:#166534;color:#fff">✓ Save pointer</button></span>
+    </div>
+    <div id="pointer" class="pointer cvfont" contenteditable="true" style="margin-top:8px">Improved defect traceability by 45% through agile model tuning and enhanced closed-loop feedback mechanism design</div>
+    <div class="row" style="margin-top:8px; gap:6px"><button class="mini" id="lockSel">🔒 Lock selection</button><input type="text" id="locked" placeholder="locked words — kept verbatim & bold, AI rephrases the rest (comma-separated)" style="flex:1; padding:6px 9px"/></div>
+    <div class="track"><div class="zone" id="zone"></div><div class="fill" id="fill"></div><div class="limit" id="limit"></div></div>
+    <div class="readout">
+      <div><span class="big" id="pctBig">–</span><span style="font-size:15px;color:#94a3b8">%</span><span class="verdict" id="verdict"></span></div>
+      <div class="px" id="pxread">–</div>
+    </div>
+    <div class="hint" id="availNote">measuring…</div>
+    <!-- GRAMMARLY-STYLE LINTER -->
+    <div class="chips" id="chips"></div>
+    <!-- DEFENSIBILITY FLAGS -->
+    <div id="defense"></div>
+  </div>
+
+  <!-- MY POINTERS (mini library) -->
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><b style="font-size:13px">⭐ My pointers (<span id="savedN">0</span>)</b>
+      <span class="row" style="gap:6px"><button class="mini" onclick="copyAllSaved('html')">Copy all</button><button class="mini" onclick="copyAllSaved('json')">Copy JSON</button><button class="mini" onclick="clearSaved()">Clear</button></span></div>
+    <div id="savedList"></div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="card">
+    <label style="margin-top:0">Project context — the model may enrich <b>only</b> with facts found here (never invents numbers)</label>
+    <textarea id="ctx" rows="4" placeholder="Paste the project write-up: what you built, the stack, real numbers, your role."></textarea>
+    <div class="row" style="margin-top:6px"><input type="file" id="ctxFile" accept=".txt,.md" style="border:0;padding:0;font-size:11px;color:#94a3b8" /></div>
+  </div>
+
+  <!-- MODEL -->
+  <div class="card">
+    <div class="grid3">
+      <div><label style="margin-top:0">Model</label><select id="provider"></select></div>
+      <div><label style="margin-top:0">Status</label><div class="hint" id="provStatus" style="margin:0">–</div></div>
+      <div><label style="margin-top:0">&nbsp;</label><button class="btn ghost" id="editKeys">🔑 API keys</button></div>
+    </div>
+    <div class="row" style="margin-top:12px; justify-content:space-between">
+      <button class="btn act" id="go">✨ Rewrite to 97–100%</button>
+      <span class="hint" id="cost" style="margin:0">API calls: 0</span>
+    </div>
+    <div id="log" class="log">Loading EB Garamond…</div>
+  </div>
+
+  <!-- ACHIEVEMENT MINER -->
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><b style="font-size:13px">⛏ Achievement Miner</b><span class="hint" style="margin:0">turn the project doc into ready, fitted bullets</span></div>
+    <div class="row" style="margin-top:10px; align-items:end">
+      <div class="seg" id="mineKind" style="max-width:280px"><button class="on" data-k="details">Project Details</button><button data-k="achievements">Achievements</button></div>
+      <div><label style="margin:0 0 4px">How many</label><input type="number" id="mineN" value="5" min="1" max="10" style="width:74px"/></div>
+      <button class="btn" id="mineGo">⛏ Mine bullets</button>
+    </div>
+    <div id="mineOut"></div>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<!-- JARGON MODAL -->
+<div class="modal" id="jarModal"><div class="sheet">
+  <div class="row" style="justify-content:space-between"><b id="jarTitle">Jargon</b><button class="mini" onclick="closeModal('jarModal')">✕ close</button></div>
+  <label>Power verbs (comma-separated)</label><textarea id="jarVerbs" rows="3"></textarea>
+  <label>Domain jargon (comma-separated)</label><textarea id="jarTerms" rows="4"></textarea>
+  <div class="row" style="margin-top:12px"><button class="btn" id="jarSave">💾 Save</button><button class="btn ghost" id="jarReset">↺ Reset to default</button></div>
+  <div class="hint">Saved on this computer. Pick “Custom” in Domain to write from scratch.</div>
+</div></div>
+
+<!-- KEYS MODAL -->
+<div class="modal" id="keyModal"><div class="sheet">
+  <div class="row" style="justify-content:space-between"><b>API keys &amp; models</b><button class="mini" onclick="closeModal('keyModal')">✕ close</button></div>
+  <div class="hint" style="margin:2px 0 12px">Free providers first. Add any keys you have — “Best available” uses them in order and auto-fails-over. Stored locally; in the .exe route these through Flask. Models are editable if an ID drifts.</div>
+  <div id="keyRows"></div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =================== EXACT CONSTANTS from page.tsx =================== */
+const FONT='"EB Garamond", Garamond, "Cormorant Garamond", serif';
+const FS=13,LH=1,LEFTCOL=15,YEARCOL=5.835,PAGE_MM=210,PAD_MM=8,PAGE_BORDER=1,CELL_PADL=2,CELL_PADR=2.5,CELL_BORDER=1,INDENT=14;
+const ACCEPT_LO=0.97,ACCEPT_HI=1.00,SOFT_LO=0.95,OVER_MAX=1.03,TRIM_MAX=1.05,MAXROUNDS=4,NVAR=5,REQ_FILLS=[0.96,0.98,0.99,1.00,1.01];
+const BOLD_MAX=0.50, BOLD_HARD=0.60;   // aim ~30-45%; only auto-trim bold above 60%, and only prose (metrics stay bold)
+let AVAIL={det:0,por:0},section='det',fontsReady=false,apiCalls=0,activeProvider=null;
+const $=id=>document.getElementById(id);
+
+/* =================== JARGON LIBRARY (editable) =================== */
+const DOMAINS={
+  general:{label:'General Management / Leadership', verbs:['Led','Spearheaded','Orchestrated','Drove','Delivered','Championed','Mobilized','Executed','Scaled'], jargon:['stakeholder','cross-functional','P&L','strategy','execution','scalability','alignment','roadmap','KPIs','ROI','end-to-end','turnaround','growth','transformation']},
+  consulting:{label:'Strategy & Consulting', verbs:['Advised','Diagnosed','Structured','Synthesized','Recommended','Benchmarked','Streamlined','Formulated'], jargon:['go-to-market','operating model','value chain','hypothesis-driven','stakeholder alignment','cost optimization','market entry','due diligence','scalability','TAM','synergies','framework','KPIs','ROI']},
+  marketing:{label:'Marketing & Brand', verbs:['Launched','Positioned','Amplified','Segmented','Drove','Converted','Orchestrated','Spearheaded'], jargon:['brand equity','funnel','CAC','LTV','engagement','positioning','GTM','conversion rate','campaign','CTR','reach','SEO','retention','A/B testing','ROAS']},
+  finance:{label:'Finance & Investment Banking', verbs:['Modeled','Valued','Forecasted','Structured','Underwrote','Optimized','Audited','Hedged'], jargon:['DCF','NPV','IRR','EBITDA','working capital','valuation','due diligence','liquidity','portfolio','cash flow','ROE','P&L','WACC','comps','basis points']},
+  operations:{label:'Operations & Supply Chain', verbs:['Streamlined','Optimized','Automated','Reengineered','Standardized','Coordinated','Reduced','Scaled'], jargon:['throughput','lead time','cycle time','OEE','lean','Six Sigma','bottleneck','SKU','inventory turns','SLA','TAT','root-cause','Kaizen','JIT','capacity utilization','defect rate']},
+  sales:{label:'Sales & Business Development', verbs:['Closed','Negotiated','Secured','Prospected','Onboarded','Upsold','Expanded','Drove'], jargon:['pipeline','quota','conversion','CRM','lead generation','account','churn','upsell','cross-sell','deal cycle','win rate','territory','ARR','prospecting']},
+  product:{label:'Product Management', verbs:['Shipped','Prioritized','Defined','Launched','Iterated','Validated','Scoped','Roadmapped'], jargon:['roadmap','MVP','user stories','backlog','sprint','A/B testing','retention','activation','north-star metric','PRD','user research','feature adoption','NPS','agile']},
+  data:{label:'Data & Analytics', verbs:['Engineered','Modeled','Automated','Analyzed','Visualized','Predicted','Optimized','Deployed'], jargon:['pipeline','ETL','regression','classification','dashboard','Power BI','SQL','feature engineering','A/B testing','precision','recall','forecasting','KPIs','data-driven','throughput']},
+  tech:{label:'Technology & Software', verbs:['Built','Engineered','Architected','Automated','Deployed','Optimized','Integrated','Scaled'], jargon:['OOP','API','CI/CD','microservices','latency','throughput','scalability','backend','pipeline','cloud','REST','caching','refactored','uptime','containerized']},
+  hr:{label:'HR & People', verbs:['Recruited','Onboarded','Facilitated','Mentored','Streamlined','Coordinated','Championed','Retained'], jargon:['talent acquisition','onboarding','engagement','attrition','retention','L&D','DEI','performance management','headcount','culture','employer branding','upskilling','stakeholder']},
+  sustainability:{label:'Sustainability & ESG', verbs:['Spearheaded','Mobilized','Implemented','Reduced','Championed','Scaled','Engaged','Drove'], jargon:['ESG','carbon footprint','circular economy','decarbonization','net-zero','renewable','impact','CSR','life-cycle','emissions','waste reduction','stakeholder','compliance']},
+  custom:{label:'Custom (your own jargon)', verbs:[], jargon:[]}
+};
+let JAR=load('cvps_jargon',{});             // per-domain overrides {verbs,jargon}
+let PREFS=load('cvps_prefs',{domain:'data',framework:'ras',provider:'best'});
+let domain=PREFS.domain||'data', framework=PREFS.framework||'ras';
+function activeJargon(){ const d=DOMAINS[domain], o=JAR[domain]||{};
+  return { verbs:(o.verbs&&o.verbs.length?o.verbs:d.verbs)||[], jargon:(o.jargon&&o.jargon.length?o.jargon:d.jargon)||[] }; }
+
+/* =================== FRAMEWORKS =================== */
+const FRAMEWORKS={
+  ras:{name:'RAS (Result–Action–Situation)', desc:'Lead with the quantified RESULT/impact, then the ACTION taken, then a brief SITUATION/context — one line.'},
+  star:{name:'STAR (Situation–Task–Action–Result)', desc:'Compress STAR into one line: brief situation/task, the action, ending on the quantified result.'}
+};
+
+/* =================== MODEL PROVIDERS (free first) =================== */
+const PROVIDERS={
+  gemini:{label:'Google Gemini', free:true, model:'gemini-2.5-flash', kind:'gemini'},
+  groq:{label:'Groq · Llama 3.3 70B', free:true, model:'llama-3.3-70b-versatile', kind:'openai', url:'https://api.groq.com/openai/v1/chat/completions', json:true},
+  cerebras:{label:'Cerebras', free:true, model:'llama-3.3-70b', kind:'openai', url:'https://api.cerebras.ai/v1/chat/completions'},
+  mistral:{label:'Mistral', free:true, model:'mistral-large-latest', kind:'openai', url:'https://api.mistral.ai/v1/chat/completions', json:true},
+  openrouter:{label:'OpenRouter · free model', free:true, model:'meta-llama/llama-3.3-70b-instruct:free', kind:'openai', url:'https://openrouter.ai/api/v1/chat/completions', extra:{'HTTP-Referer':'http://localhost','X-Title':'CV Pointer Studio'}},
+  openai:{label:'OpenAI · ChatGPT', free:false, model:'gpt-4o-mini', kind:'openai', url:'https://api.openai.com/v1/chat/completions', json:true},
+  anthropic:{label:'Anthropic · Claude', free:false, model:'claude-sonnet-4-20250514', kind:'anthropic', url:'https://api.anthropic.com/v1/messages'}
+};
+const BEST_ORDER=['gemini','groq','cerebras','mistral','openrouter','openai','anthropic'];
+let KEYS=load('cvps_keys',{});              // {id:{key,model}} ; key may hold MANY keys (newline/comma) -> rotated
+const rawKey=id=>((KEYS[id]&&KEYS[id].key)||'');
+const keysOf=id=>rawKey(id).split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);   // key pool (multi Gemini accounts)
+const modelOf=id=>(KEYS[id]&&KEYS[id].model||'').trim()||PROVIDERS[id].model;
+const hasKey=id=>keysOf(id).length>0;
+let keyIdx={};                              // provider -> last working key index (sticky rotation)
+
+/* =================== storage helpers =================== */
+function load(k,def){ try{ return JSON.parse(localStorage.getItem(k))||def; }catch(e){ return def; } }
+function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); setTimeout(()=>t.classList.remove('on'),1400); }
+
+/* =================== THE RULER (exact replica) =================== */
+function buildReplica(sec){
+  const page=document.createElement('div'); page.className='cvfont';
+  page.style.cssText=`position:absolute;left:-99999px;top:0;visibility:hidden;width:${PAGE_MM}mm;border:${PAGE_BORDER}px solid #ccc;padding:16px ${PAD_MM}mm 3mm ${PAD_MM}mm;font-size:${FS}px;line-height:${LH};`;
+  const cols=sec==='det'?`<col style="width:${LEFTCOL}%"><col style="width:${100-LEFTCOL}%">`:`<col style="width:${LEFTCOL}%"><col style="width:${100-LEFTCOL-YEARCOL}%"><col style="width:${YEARCOL}%">`;
+  const yr=sec==='det'?'':`<td style="border:${CELL_BORDER}px solid #000;padding:2.5px 4px;"></td>`;
+  page.innerHTML=`<table style="width:100%;border-collapse:collapse;table-layout:fixed;"><colgroup>${cols}</colgroup><tbody><tr><td style="border:${CELL_BORDER}px solid #000;padding:0 4px;text-align:center;">Project Details</td><td id="cell" style="border:${CELL_BORDER}px solid #000;vertical-align:top;padding:2.5px ${CELL_PADR}px 2.5px ${CELL_PADL}px;"><div style="display:flex;flex-direction:column;gap:2px;"><div style="padding-left:${INDENT}px;position:relative;min-height:${FS}px;"><span id="probe" style="position:absolute;left:${INDENT}px;top:0;white-space:nowrap;"></span></div></div></td>${yr}</tr></tbody></table>`;
+  document.body.appendChild(page); return page;
+}
+const replicas={det:null,por:null};
+function measureAvail(){ ['det','por'].forEach(sec=>{ if(!replicas[sec]) replicas[sec]=buildReplica(sec); const c=replicas[sec].querySelector('#cell'); AVAIL[sec]=c.clientWidth-CELL_PADL-CELL_PADR-INDENT; }); }
+function textWidth(html,sec){ const p=replicas[sec].querySelector('#probe'); p.innerHTML=html; return p.getBoundingClientRect().width; }
+function fitOf(html,sec){ const w=textWidth(html,sec),avail=AVAIL[sec]||1; return {html,w,avail,pct:w/avail,fits:w<=avail}; }
+const plain=h=>h.replace(/<[^>]+>/g,'').replace(/\*{1,2}|__/g,'').replace(/&amp;/g,'&').replace(/&nbsp;/g,' ');
+
+/* =================== bold normalisation (no markdown ever) =================== */
+function applyBold(text,spans){ let out=text; (spans||[]).filter(Boolean).sort((a,b)=>b.length-a.length).forEach(s=>{ const i=out.toLowerCase().indexOf(s.toLowerCase()); if(i>=0&&out.slice(Math.max(0,i-3),i).indexOf('<')<0) out=out.slice(0,i)+'<b>'+out.slice(i,i+s.length)+'</b>'+out.slice(i+s.length); }); return out; }
+function normalizeBold(text,spans){ let t=String(text).replace(/<\/?strong>/gi,m=>m[1]==='/'?'</b>':'<b>').replace(/\*\*([^*]+?)\*\*/g,'<b>$1</b>').replace(/__([^_]+?)__/g,'<b>$1</b>').replace(/(^|[^*])\*([^*\n]+?)\*(?!\*)/g,'$1<b>$2</b>').replace(/[*_]+/g,'');
+  if(!/<b>/i.test(t)&&spans&&spans.length) t=applyBold(t,spans);
+  return t.replace(/<b>\s*<b>/gi,'<b>').replace(/<\/b>\s*<\/b>/gi,'</b>'); }
+
+/* =================== QUALITY GUARDS (logic + KPIs > blind fit) =================== */
+const DANGLING=/(?:\b(?:by|and|to|of|with|the|a|an|for|in|on|at|as|via|which|that|from|into|per)\b|[,&\-–])\s*\.?\s*$/i;
+function isComplete(t){ t=(t||'').trim(); if(t.length<12) return false; if(DANGLING.test(t)) return false; if(/\b(?:by|to|of|for|with)\s+\d*\s*$/i.test(t)) return false; return /[A-Za-z0-9%)\.]$/.test(t); }
+/* drop a redundant "(ABBR)" that just repeats the words before it: "quality assurance (QA)" -> "quality assurance" */
+function stripRedundantAcronyms(text){ return String(text).replace(/\b([A-Za-z][A-Za-z'&.\- ]+?)\s*\(([A-Za-z]{2,6})\)/g,(m,words,abbr)=>{
+  const init=words.trim().split(/\s+/).map(w=>(w[0]||'').toUpperCase()).join(''); const A=abbr.toUpperCase().replace(/[^A-Z]/g,'');
+  return (init===A||init.endsWith(A))?words.trim():m; }); }
+function lockedList(){ const e=$('locked'); return e? e.value.split(',').map(s=>s.trim()).filter(Boolean):[]; }
+function hasLocked(t){ const low=(t||'').toLowerCase(); return lockedList().every(w=>low.includes(w.toLowerCase())); }
+function ensureLockedBold(html){ lockedList().forEach(w=>{ const re=new RegExp('<b>[^<]*'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); if(!re.test(html)) html=applyBold(html,[w]); }); return html; }
+/* SAFE trim: only drop a WHOLE trailing clause at a comma — never leave a dangling word or cut a number */
+function safeTrim(html,sec){ let cur=html;
+  for(let i=0;i<4;i++){ const r=fitOf(cur,sec); if(r.pct<=ACCEPT_HI){ const p=plain(cur); return (isComplete(p)&&/\d/.test(p))?{...r,html:cur,trimmed:i>0}:null; }
+    const li=cur.lastIndexOf(','); if(li<24) return null; let cut=cur.slice(0,li).replace(/\s+$/,'');
+    const op=(cut.match(/<b>/g)||[]).length,cl=(cut.match(/<\/b>/g)||[]).length; if(op>cl) cut+='</b>'; cur=cut; }
+  return null; }
+/* bold budget: bold must be the ACTION + IMPACT skim-layer, never more than half the line */
+function boldFraction(html){ const total=plain(html).replace(/\s+/g,'').length||1; const b=(html.match(/<b>([\s\S]*?)<\/b>/gi)||[]).map(m=>m.replace(/<[^>]+>/g,'')).join('').replace(/\s+/g,'').length; return b/total; }
+function capBold(html,maxFrac){ let h=html,guard=0;
+  while(boldFraction(h)>maxFrac && guard++<8){ const runs=[...h.matchAll(/<b>([\s\S]*?)<\/b>/gi)]; if(runs.length<=1) break;
+    const lk=lockedList().map(s=>s.toLowerCase());
+    const cand=runs.filter(r=>!/\d/.test(r[1]) && !lk.some(l=>l&&r[1].toLowerCase().includes(l)));   // only unbold PROSE runs (no number), keep metrics + locked bold
+    if(!cand.length) break; const lg=cand.reduce((a,b)=>b[1].length>a[1].length?b:a);                // unbold the longest prose run first
+    h=h.slice(0,lg.index)+lg[1]+h.slice(lg.index+lg[0].length); }
+  return h; }
+/* CV pointers never end with a full stop */
+function stripEndPeriod(html){ return String(html).replace(/\s*\.\s*$/,'').replace(/\.\s*(<\/b>)\s*$/,'$1'); }
+/* one raw variant -> measured candidate with quality flags (used by rewrite AND miner) */
+function makeCandidate(text,bold,sec){ let html=stripEndPeriod(capBold(ensureLockedBold(normalizeBold(stripRedundantAcronyms(text),bold)),BOLD_HARD));
+  let r=fitOf(html,sec); if(r.pct>OVER_MAX){ const s=safeTrim(html,sec); if(s) r=s; }   // only trim if it exceeds the 103% ceiling
+  const p=plain(r.html); r.complete=isComplete(p)&&hasLocked(p); return r; }
+const median=a=>{ if(!a.length) return 0; const s=[...a].sort((x,y)=>x-y),m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
+function log(m){ const l=$('log'); l.textContent+='\n'+m; l.scrollTop=l.scrollHeight; }
+
+/* =================== GRAMMARLY-STYLE LINTER =================== */
+const WEAK={'responsible for':'Led','worked on':'Engineered','helped':'Enabled','assisted in':'Drove','assisted with':'Supported','in charge of':'Led','took care of':'Managed','was part of':'Contributed to','participated in':'Drove','involved in':'Drove','worked with':'Partnered with','dealt with':'Resolved','made':'Built','did':'Executed','used':'Leveraged','handled':'Managed','got':'Secured'};
+const FILLERS=['very','really','successfully','effectively','efficiently','various','numerous','a lot of','in order to','basically','actually','quite','several','multiple'];
+function lint(text){
+  const low=' '+text.toLowerCase()+' ';
+  const swaps=Object.keys(WEAK).filter(w=>low.includes(' '+w+' ')||low.includes(' '+w+',')).map(w=>({from:w,to:WEAK[w]}));
+  const fillers=FILLERS.filter(f=>low.includes(' '+f+' '));
+  const have=text.toLowerCase();
+  const jar=activeJargon().jargon.filter(j=>!have.includes(j.toLowerCase())).slice(0,6);
+  return {swaps,fillers,jar};
+}
+function renderChips(){
+  const txt=plain($('pointer').innerHTML), L=lint(txt), box=$('chips'); box.innerHTML='';
+  L.swaps.forEach(s=>{ const c=el('chip swap',`<span class="a">${s.from}</span> → <b>${s.to}</b>`); c.onclick=()=>applySwap(s.from,s.to); box.appendChild(c); });
+  L.fillers.forEach(f=>{ const c=el('chip filler',`✕ remove “${f}”`); c.onclick=()=>removeWord(f); box.appendChild(c); });
+  if(L.jar.length){ const c=el('chip jar',`💡 jargon: ${L.jar.join(', ')}`); c.onclick=()=>{navigator.clipboard?.writeText(L.jar.join(', '));toast('jargon copied');}; box.appendChild(c); }
+  if(!L.swaps.length && !L.fillers.length) { const c=el('chip','✓ no weak verbs / fillers'); c.style.opacity=.6; box.appendChild(c); }
+}
+function el(cls,html){ const d=document.createElement('button'); d.className=cls; d.innerHTML=html; return d; }
+function caseLike(sample,word){ return /^[A-Z]/.test(sample)? word.charAt(0).toUpperCase()+word.slice(1) : word.charAt(0).toLowerCase()+word.slice(1); }
+function applySwap(from,to){ const p=$('pointer'); const re=new RegExp('(^|[^\\w<])('+from.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=[\\s,.]|$)','i');
+  p.innerHTML=p.innerHTML.replace(re,(m,pre,match)=>pre+caseLike(match,to)); updateHero(); renderChips(); }
+function removeWord(w){ const p=$('pointer'); const re=new RegExp('\\s*(^|[^\\w<])('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?=[\\s,.]|$)','i');
+  p.innerHTML=p.innerHTML.replace(re,(m,pre)=> (pre===' '||pre==='')?' ':pre).replace(/\s{2,}/g,' '); updateHero(); renderChips(); }
+
+/* =================== HERO bar =================== */
+function positionZones(){ const s=110; $('zone').style.left=(ACCEPT_LO*100/s*100)+'%'; $('zone').style.width=((ACCEPT_HI-ACCEPT_LO)*100/s*100)+'%'; $('limit').style.left=(100/s*100)+'%'; }
+function fillClass(pct){ return pct>103?'bad':pct>100?'warn':pct>=97?'ok':pct>=95?'warn':'cool'; }   // ideal 97–100; 95–97 & 100–103 ok-ish; >103 bad
+function fillColor(pct){ return pct>103?'#ef4444':pct>100?'#f59e0b':pct>=97?'#22c55e':pct>=95?'#f59e0b':'#3b82f6'; }
+function paint(el,pct,s=110){ el.style.width=Math.min(pct*100,s)/s*100+'%'; el.style.background=fillColor(Math.round(pct*100)); }
+function updateHero(){ if(!fontsReady) return; const r=fitOf($('pointer').innerHTML,section),pct=Math.round(r.pct*100),cls=fillClass(pct);
+  $('pctBig').textContent=pct; $('pctBig').className='big '+cls; paint($('fill'),r.pct);
+  $('pxread').textContent=`${r.w.toFixed(1)} / ${r.avail.toFixed(1)} px`;
+  const v=$('verdict'); v.className='verdict '+cls;
+  v.textContent = pct>103?'  ✕ too long' : pct>100?'  ◔ just over (ok)' : pct>=97?'  ✓ perfect' : pct>=95?'  ◑ fits' : '  · too short'; }
+
+/* =================== MODEL CALLS + FAILOVER =================== */
+function lenientJSON(raw){ let t=String(raw).replace(/^```(?:json)?|```$/gm,'').trim();
+  try{ return JSON.parse(t); }catch(e){ const m=t.match(/\{[\s\S]*\}/); if(!m) throw new Error('no JSON in reply'); return JSON.parse(m[0]); } }
+function parseVariants(raw){ return (lenientJSON(raw).variants||[]).map(v=>({text:String(v.text||'').trim(),bold:v.bold||[]})); }
+async function callOnce(id,key,model,prompt){   // one attempt with ONE key -> raw text
+  const P=PROVIDERS[id]; let res,raw;
+  if(P.kind==='gemini'){
+    res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`,
+      {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.55,responseMimeType:'application/json'}})});
+    const d=await res.json().catch(()=>({})); if(!res.ok) throw new Error(d.error?.message||('HTTP '+res.status)); raw=d.candidates?.[0]?.content?.parts?.[0]?.text||'';
+  } else if(P.kind==='anthropic'){
+    res=await fetch(P.url,{method:'POST',headers:{'x-api-key':key,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model,max_tokens:1400,messages:[{role:'user',content:prompt}]})});
+    const d=await res.json().catch(()=>({})); if(!res.ok) throw new Error(d.error?.message||('HTTP '+res.status)); raw=d.content?.[0]?.text||'';
+  } else { // openai-compatible: groq, cerebras, mistral, openrouter, openai
+    const body={model,temperature:0.55,messages:[{role:'user',content:prompt}]}; if(P.json) body.response_format={type:'json_object'};
+    res=await fetch(P.url,{method:'POST',headers:Object.assign({'Content-Type':'application/json','Authorization':'Bearer '+key},P.extra||{}),body:JSON.stringify(body)});
+    const d=await res.json().catch(()=>({})); if(!res.ok) throw new Error(d.error?.message||d.error||('HTTP '+res.status)); raw=d.choices?.[0]?.message?.content||'';
+  }
+  return raw;
+}
+/* rotate through a provider's KEY POOL (multiple Gemini accounts). Try each key in order,
+   sticky to the last one that worked; on quota/error advance to the next key. */
+async function callModel(id,prompt){
+  const keys=keysOf(id),model=modelOf(id); if(!keys.length) throw new Error('no key');
+  const start=keyIdx[id]||0; let err;
+  for(let n=0;n<keys.length;n++){ const ki=(start+n)%keys.length;
+    try{ apiCalls++; $('cost').textContent='API calls: '+apiCalls;
+      const raw=await callOnce(id,keys[ki],model,prompt); keyIdx[id]=ki;
+      if(keys.length>1) log(`     ✓ ${PROVIDERS[id].label} · key #${ki+1}/${keys.length}`);
+      return raw;
+    }catch(e){ err=e; const q=/quota|rate|exhaust|429|limit|resource/i.test(e.message);
+      if(keys.length>1) log(`     ✕ key #${ki+1}/${keys.length}: ${e.message}${q?' (quota)':''} → next key`); }
+  }
+  throw err;
+}
+function currentChain(){
+  const sel=$('provider').value;
+  if(sel!=='best'){ return hasKey(sel)?[sel]:[]; }
+  let chain=BEST_ORDER.filter(hasKey);
+  if(activeProvider && chain.includes(activeProvider)) chain=[activeProvider,...chain.filter(x=>x!==activeProvider)]; // stick to what works
+  return chain;
+}
+async function smartRaw(prompt){   // provider-level failover; each provider rotates its own key pool
+  const chain=currentChain();
+  if(!chain.length) throw new Error('No API key set. Click “🔑 API keys”.');
+  let err;
+  for(const id of chain){
+    try{ log('   → '+PROVIDERS[id].label+(PROVIDERS[id].free?' (free)':'')); const raw=await callModel(id,prompt); activeProvider=id; $('provStatus').innerHTML='using <b>'+PROVIDERS[id].label+'</b>'; return raw; }
+    catch(e){ err=e; const quota=/quota|rate|exhaust|429|limit/i.test(e.message); console.error('[provider]',id,e); log('     ✕ '+PROVIDERS[id].label+': '+e.message+(quota?' — all keys exhausted, failing over':' — failing over')); if(id===activeProvider) activeProvider=null; }
+  }
+  throw err||new Error('all providers failed');
+}
+async function smartGenerate(prompt){ return parseVariants(await smartRaw(prompt)); }
+
+/* =================== PROMPT =================== */
+function buildPrompt(pointer,ctx,targets,feedback){
+  const {verbs,jargon}=activeJargon(), fw=FRAMEWORKS[framework], D=DOMAINS[domain], locked=lockedList();
+  return `You rewrite ONE résumé bullet ("pointer") for a one-line IIM Mumbai placement CV in the ${D.label} domain.
+Give ${NVAR} strong, DISTINCT rewrites of the SAME achievement (keep its core fact + metric).
+
+QUALITY BAR (most important — quality beats exact length):
+- Each must be a COMPLETE, grammatical, LOGICAL sentence a recruiter finds impressive: clear ACTION → IMPACT with a real KPI. Never pad with vague words or leave a clause hanging just to hit a length.
+- Frame it around BUSINESS IMPACT / VALUE — what changed for the business (cost saved, revenue, efficiency, quality, risk cut, faster/better decisions) — not just the task performed. On a CV the value delivered matters most, so lead with or land on the impact.
+- Lead with a strong past-tense action verb (prefer: ${verbs.join(', ')||'strong verbs'}); end on a concrete result/number taken from the CONTEXT.
+- No full stop at the end (CV bullets never end with a period).
+- Weave in truthful domain jargon (${jargon.join(', ')||'—'}); cut filler words.
+- NEVER write an abbreviation in parentheses after its full form — write "quality assurance" OR "QA", never "quality assurance (QA)". Pick the punchier one.
+- Use ONLY facts in CONTEXT. Never invent numbers, tools, employers or outcomes.
+- Structure per ${fw.name}: ${fw.desc}
+
+BOLDING (very important — bold is a SKIM LAYER):
+- Bold ONLY the action and the impact — the verb + the headline metric(s)/scope. Never bold filler and never bold just to change width.
+- The bolded words, read ALONE, must still make sense as a mini-summary of the point. Example: "<b>Analyzed ₹6,372 Cr procurement spend</b> across 6,300+ purchase orders & <b>408 SKUs</b> spanning 5 years, <b>161 suppliers</b>" → reading only the bold gives "Analyzed ₹6,372 Cr procurement spend … 408 SKUs … 161 suppliers".
+- Keep bold to ~30–45% of the line, never more than half. <b></b> only, never markdown ** or __.
+${locked.length?('- PRIORITY words — include EACH somewhere in the sentence and BOLD it. They can sit anywhere and need NOT be adjacent to each other; rephrase everything else freely around them: '+locked.join(', ')):''}
+
+LENGTH: fill 95–103% of the line but ALWAYS prefer UNDER 100%, ideally 97–100%. Never exceed 103%. Target ~${targets.join(', ')} characters respectively. A complete, logical sentence at 97% beats a padded or overflowing one.
+${feedback?('- FEEDBACK: '+feedback):''}
+
+Return STRICT JSON only: {"variants":[{"text":"...","bold":["exact action phrase","exact impact/metric"]}]} — exactly ${NVAR} variants.
+
+ORIGINAL POINTER: ${plain(pointer)}
+
+CONTEXT (the only source of facts):
+${ctx.slice(0,7000)}`;
+}
+
+/* =================== FIT LOOP =================== */
+async function rewriteToFit(){
+  const pointer=$('pointer').innerHTML.trim(), ctx=$('ctx').value.trim();
+  if(!plain(pointer)){ alert('Type the pointer to rewrite first.'); return; }
+  if(!ctx){ alert('Paste the project context — the model needs real facts to enrich truthfully.'); return; }
+  $('go').disabled=true; $('log').textContent=''; apiCalls=0; $('cost').textContent='API calls: 0'; activeProvider=null;
+  const sec=section; let ppc=Math.max(fitOf(pointer,sec).w/Math.max(plain(pointer).length,1),4);
+  const pool=[], keep=[], seen=new Set(); let feedback=''; const TARGET_SHOW=4;
+  const charTargets=()=>REQ_FILLS.map(f=>Math.round(AVAIL[sec]*f/ppc));
+  try{
+    for(let round=1;round<=MAXROUNDS;round++){
+      const targets=charTargets();
+      log(`round ${round}: ~[${targets.join(', ')}] chars (line=${AVAIL[sec].toFixed(0)}px)${feedback?'  ['+feedback+']':''}`);
+      const variants=await smartGenerate(buildPrompt(pointer,ctx,targets,feedback));
+      const widths=[],lens=[];
+      for(const v of variants){ const r=makeCandidate(v.text,v.bold,sec); widths.push(r.w); lens.push(plain(r.html).length); pool.push(r);
+        const pass=r.complete&&r.pct>=SOFT_LO&&r.pct<=OVER_MAX, key=plain(r.html).toLowerCase().slice(0,60);   // 95–103%
+        log(`   ${(r.pct*100).toFixed(1).padStart(5)}%  ${pass?(r.pct<=ACCEPT_HI?'✓ keep':'~ over-ok'):(r.complete?(r.pct<SOFT_LO?'· short':'✕ too long'):'✕ incomplete')}  ${plain(r.html).slice(0,40)}`);
+        if(pass && !seen.has(key)){ seen.add(key); keep.push(r); }
+      }
+      const under=keep.filter(a=>a.pct<=ACCEPT_HI).length;   // we PREFER under-100% options
+      if(under>=TARGET_SHOW || keep.length>=TARGET_SHOW+1){ log(`✓ ${keep.length} passing (${under} under 100%) — stopping`); break; }
+      // re-ask only for what's still missing, steering to 97–100% (under 100)
+      const ratios=widths.map((w,i)=>w/Math.max(lens[i],1)).filter(x=>x>0); if(ratios.length) ppc=median(ratios);
+      const want=Math.max(1,TARGET_SHOW-under);
+      const toolong=pool.filter(a=>a.pct>OVER_MAX).sort((a,b)=>a.pct-b.pct)[0], inc=pool.find(a=>!a.complete), short=pool.filter(a=>a.complete&&a.pct<SOFT_LO).sort((a,b)=>b.pct-a.pct)[0];
+      if(toolong){ const cut=Math.ceil((toolong.w-AVAIL[sec]*0.99)/ppc); feedback=`too long — give ${want} more, each ~${cut} chars shorter, a COMPLETE sentence UNDER 100% of the line, keep the metric`; }
+      else if(inc){ feedback=`some got cut off — give ${want} more COMPLETE logical sentences at 97–100% of the line`; }
+      else if(short){ const need=Math.ceil((AVAIL[sec]*0.99-short.w)/ppc); feedback=`give ${want} more, each ~${need} chars longer with real detail, aiming 97–100% (a complete sentence)`; }
+      else feedback=`give ${want} more complete options at 97–100% of the line (prefer under 100%)`;
+    }
+    let show=rank(keep);          // ONLY passing pointers (95–103%), under-100% ranked first
+    if(!show.length){             // safety net: nothing landed -> closest COMPLETE (never >103%)
+      show=pool.filter(a=>a.complete&&a.pct<=OVER_MAX).sort((a,b)=>Math.abs(0.99-a.pct)-Math.abs(0.99-b.pct)).slice(0,3);
+      if(!show.length) show=pool.filter(a=>a.complete).sort((a,b)=>a.pct-b.pct).slice(0,3);
+      if(show.length) log('⚠ none in 95–103% — showing the closest complete option(s)');
+    }
+    render(show,sec);
+  }catch(e){ console.error(e); log('⚠ '+e.message); }
+  $('go').disabled=false;
+}
+/* prefer 97–100% (ideal) > 95–97% (under) > 100–103% (slight over, fallback); reject <95 or >103 or incomplete */
+function qtier(a){ if(!a.complete) return 9; if(a.pct>OVER_MAX) return 8; if(a.pct<SOFT_LO) return 7;
+  if(a.pct>=ACCEPT_LO&&a.pct<=ACCEPT_HI) return 0; if(a.pct>=SOFT_LO&&a.pct<ACCEPT_LO) return 1; return 2; }
+function rank(pool){ const uniq=[],seen=new Set(); for(const a of pool){ const k=plain(a.html).toLowerCase(); if(!seen.has(k)){ seen.add(k); uniq.push(a); } }
+  return uniq.sort((a,b)=>qtier(a)-qtier(b)||Math.abs(0.99-a.pct)-Math.abs(0.99-b.pct)).slice(0,6); }
+function cbar(pct){ const s=110,w=Math.min(pct*100,s)/s*100,c=fillColor(Math.round(pct*100)),zl=ACCEPT_LO*100/s*100,zw=(ACCEPT_HI-ACCEPT_LO)*100/s*100;
+  return `<div class="ctrack"><div class="czone" style="left:${zl}%;width:${zw}%"></div><div class="cfill" style="width:${w}%;background:${c}"></div></div>`; }
+function render(cands){ const box=$('results'); if(!cands.length){ box.innerHTML='<div class="card">No candidates — see log/console.</div>'; return; } window._c=cands;
+  const best=cands[0]; if(best.complete&&best.pct>=SOFT_LO&&best.pct<=ACCEPT_HI){ $('pointer').innerHTML=best.html; updateHero(); renderChips(); }
+  box.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><b style="font-size:13px">Candidates</b><span class="hint" style="margin:0">best applied above · ${apiCalls} call${apiCalls>1?'s':''}${activeProvider?' · '+PROVIDERS[activeProvider].label:''}</span></div>`+
+    cands.map((c,i)=>{ const pct=Math.round(c.pct*100),cls=fillClass(pct),fitTxt=(pct>103?'too long ✕':pct>100?'just over ✓':'fits ✓'),tag=(c.pct>=ACCEPT_LO&&c.pct<=ACCEPT_HI)?(c.trimmed?'<span class="tag trim">trimmed</span>':'<span class="tag">perfect</span>'):'';
+      return `<div class="cand${i===0?' best':''}">${i===0?'<div class="badge ok" style="margin-bottom:4px">★ best</div>':''}<div class="txt cvfont">${c.html}</div>${cbar(c.pct)}<div class="row" style="justify-content:space-between"><span class="badge ${cls}">${pct}% · ${fitTxt} · ${c.w.toFixed(0)}/${c.avail.toFixed(0)}px ${tag}</span><span class="row" style="gap:6px"><button class="mini" onclick="useCand(${i})">Use ↑</button><button class="mini" onclick="copyCand(${i})">Copy</button></span></div></div>`; }).join('')+`</div>`; }
+window.useCand=i=>{ $('pointer').innerHTML=window._c[i].html; updateHero(); renderChips(); window.scrollTo({top:0,behavior:'smooth'}); };
+window.copyCand=i=>{ navigator.clipboard?.writeText(window._c[i].html); toast('copied'); };
+
+/* =================== UI: populate + wire =================== */
+function fillDomains(){ const s=$('domain'); s.innerHTML=Object.keys(DOMAINS).map(k=>`<option value="${k}">${DOMAINS[k].label}</option>`).join(''); s.value=domain; }
+function fillProviders(){ const s=$('provider');
+  const opt=(id)=>`<option value="${id}">${PROVIDERS[id].label}${PROVIDERS[id].free?'  ⚡free':'  $paid'}</option>`;
+  s.innerHTML=`<option value="best">🏆 Best available (auto-failover)</option>`+BEST_ORDER.map(opt).join(''); s.value=PREFS.provider||'best'; updateProvStatus(); }
+function updateProvStatus(){ const sel=$('provider').value; if(sel==='best'){ const n=BEST_ORDER.filter(hasKey); $('provStatus').innerHTML=n.length?`chain: ${n.map(i=>PROVIDERS[i].label.split(' · ')[0]).join(' → ')}`:'<span class="bad">no keys yet</span>'; }
+  else $('provStatus').innerHTML=hasKey(sel)?'ready':'<span class="bad">no key — add it</span>'; }
+function keyRows(){ $('keyRows').innerHTML=BEST_ORDER.map(id=>{ const P=PROVIDERS[id], multi=(id==='gemini'), cnt=keysOf(id).length;
+  const field=multi
+    ? `<textarea rows="3" placeholder="one Gemini key per line — auto-rotates to the next account on quota" oninput="setKey('${id}',this.value)">${rawKey(id)}</textarea>`
+    : `<input type="text" placeholder="API key (comma-separate for multiple)" value="${rawKey(id)}" oninput="setKey('${id}',this.value)"/>`;
+  return `<div class="prow"><div><span class="dot ${hasKey(id)?'on':''}"></span>${P.label.split(' · ')[0]}${P.free?'<span class="free">FREE</span>':'<span class="paid">PAID</span>'}${multi&&cnt?` <span class="hint" style="margin:0">${cnt} keys</span>`:''}</div>
+    ${field}
+    <input type="text" placeholder="model" value="${modelOf(id)}" oninput="setModel('${id}',this.value)"/></div>`; }).join(''); }
+window.setKey=(id,v)=>{ KEYS[id]=KEYS[id]||{}; KEYS[id].key=v; save('cvps_keys',KEYS); keyRows.dot; updateProvStatus(); };
+window.setModel=(id,v)=>{ KEYS[id]=KEYS[id]||{}; KEYS[id].model=v; save('cvps_keys',KEYS); };
+window.closeModal=id=>$(id).classList.remove('on');
+
+function openJargon(){ const d=DOMAINS[domain],o=JAR[domain]||{}; $('jarTitle').textContent='Jargon · '+d.label;
+  $('jarVerbs').value=(o.verbs&&o.verbs.length?o.verbs:d.verbs).join(', '); $('jarTerms').value=(o.jargon&&o.jargon.length?o.jargon:d.jargon).join(', '); $('jarModal').classList.add('on'); }
+$('jarSave').onclick=()=>{ JAR[domain]={verbs:splitList($('jarVerbs').value),jargon:splitList($('jarTerms').value)}; save('cvps_jargon',JAR); renderChips(); toast('jargon saved'); closeModal('jarModal'); };
+$('jarReset').onclick=()=>{ delete JAR[domain]; save('cvps_jargon',JAR); openJargon(); renderChips(); toast('reset to default'); };
+const splitList=s=>s.split(',').map(x=>x.trim()).filter(Boolean);
+
+$('domain').onchange=e=>{ domain=e.target.value; PREFS.domain=domain; save('cvps_prefs',PREFS); renderChips(); };
+$('fw').onclick=e=>{ const b=e.target.closest('button'); if(!b) return; [...$('fw').children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); framework=b.dataset.fw; PREFS.framework=framework; save('cvps_prefs',PREFS); };
+$('sec').onclick=e=>{ const b=e.target.closest('button'); if(!b) return; [...$('sec').children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); section=b.dataset.sec; showAvail(); updateHero(); };
+$('provider').onchange=e=>{ PREFS.provider=e.target.value; save('cvps_prefs',PREFS); updateProvStatus(); };
+$('editJargon').onclick=openJargon; $('editKeys').onclick=()=>{ keyRows(); $('keyModal').classList.add('on'); };
+$('pointer').addEventListener('input',()=>{ updateHero(); renderChips(); });
+$('boldBtn').addEventListener('mousedown',e=>{ e.preventDefault(); document.execCommand('bold'); updateHero(); });
+$('lockSel').addEventListener('mousedown',e=>{ e.preventDefault(); const s=(window.getSelection&&window.getSelection().toString()||'').trim().replace(/[.,;]+$/,'');
+  if(!s){ toast('select text in the pointer first'); return; } const cur=lockedList(); if(!cur.some(w=>w.toLowerCase()===s.toLowerCase())){ cur.push(s); $('locked').value=cur.join(', '); toast('locked: '+s); } });
+$('ctxFile').addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ $('ctx').value=r.result; toast('context loaded'); }; r.readAsText(f); });
+$('go').addEventListener('click',rewriteToFit);
+function showAvail(){ $('availNote').textContent=`line width for ${section==='det'?'Internship/Project details':'P.O.R / Awards'}: ${AVAIL[section].toFixed(1)} px · target 97–100%, accept 95–103% (${(AVAIL[section]*0.95).toFixed(0)}–${(AVAIL[section]*1.03).toFixed(0)} px)`; }
+
+$('ctx').value=`Project: ML-Based Automated Defect Detection System for Manufacturing Quality Control (SVR Degree College, 7 weeks).
+Built and tuned a CNN on 15K+ annotated manufacturing images to automate defect detection.
+Implemented agile model tuning with a closed-loop feedback cycle, improving defect traceability by 45%.
+Boosted OEE by 25% by cutting inspection delays 40% across production stages.
+Cut defect escape rate by 30% via real-time ML inspection; reduced data-prep time 35% with semi-automated annotation.`;
+
+/* =================== ACHIEVEMENT MINER =================== */
+const escapeHtml=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function localDefense(text,ctx){ const flags=[]; const nums=(text.match(/\d[\d,\.]*\s?%?/g)||[]).map(s=>s.replace(/[,\s]/g,'')); const c=(ctx||'').replace(/[,\s]/g,'');
+  nums.forEach(n=>{ const bare=n.replace('%',''); if(bare.length>=2 && !c.includes(bare)) flags.push(`“${n}” isn’t in your project doc — be ready to back it.`); });
+  const sup=(text.match(/\b(best|world-?class|revolutionary|cutting-edge|unprecedented|massive|huge|amazing)\b/gi)||[]); if(sup.length) flags.push(`Vague superlative: ${[...new Set(sup.map(s=>s.toLowerCase()))].join(', ')} — swap for a number.`);
+  return flags; }
+function mineKind(){ return document.querySelector('#mineKind .on').dataset.k; }
+function minePrompt(kind,n,targets,existing,feedback){
+  const {verbs,jargon}=activeJargon(),D=DOMAINS[domain],fw=FRAMEWORKS[framework];
+  const focus=kind==='achievements'
+    ? 'ACHIEVEMENTS = quantified OUTCOMES / impact / results (%, time saved, revenue, adoption, throughput).'
+    : 'PROJECT DETAILS = the ACTIONS / methods / technical scope you executed (what you built and how).';
+  const locked=lockedList();
+  return `From the CONTEXT, write ${n} DISTINCT, high-quality ${kind} for a one-line IIM ${D.label} placement CV.
+${focus}
+
+QUALITY BAR (most important):
+- Each a COMPLETE, grammatical, LOGICAL sentence a recruiter finds impressive: clear ACTION → IMPACT with a real KPI from the CONTEXT. No word-salad, no padding, never leave a clause hanging.
+- Frame each around BUSINESS IMPACT / VALUE (cost, revenue, efficiency, quality, risk, faster/better decisions) — not just the task done. On a CV the value delivered matters most.
+- No full stop at the end (CV bullets never end with a period).
+- Each a DIFFERENT point — no overlap or paraphrase. Use ONLY facts in CONTEXT; never invent numbers, tools or outcomes.
+- Strong past-tense verb first (prefer: ${verbs.join(', ')||'strong verbs'}); weave truthful jargon (${jargon.join(', ')||'—'}); cut filler.
+- ${kind==='achievements'?'Each MUST carry a real metric.':'Prefer a real metric where truthful.'}
+- NEVER put an abbreviation in parentheses after its full form (write "quality assurance" OR "QA", never both).
+- Structure each per ${fw.name}.
+
+BOLDING (bold is a SKIM LAYER): bold ONLY the action + the impact (verb + headline metric/scope) so the bold words READ ALONE still make sense — e.g. "<b>Analyzed ₹6,372 Cr procurement spend</b> across 6,300+ purchase orders & <b>408 SKUs</b> spanning 5 years, <b>161 suppliers</b>". ~30–45% bold, never over half. <b></b> only, never markdown.
+${locked.length?('- PRIORITY words — include EACH and BOLD it wherever it naturally fits (anywhere, need not be adjacent): '+locked.join(', ')):''}
+
+LENGTH: fill 95–103% of the line but ALWAYS prefer UNDER 100% (ideally 97–100%); never exceed 103%. Target ~${targets.join(', ')} chars respectively; a complete logical sentence at 97% beats a padded/overflowing one.
+${existing.length?('- Do NOT repeat these already-made points: '+existing.map(s=>'"'+s.slice(0,38)+'"').join('; ')):''}
+${feedback?('- FEEDBACK: '+feedback):''}
+
+Return STRICT JSON only: {"variants":[{"text":"...","bold":["action phrase","impact/metric"]}]} with exactly ${n} items.
+
+CONTEXT (the only source of facts):
+${$('ctx').value.slice(0,7000)}`;
+}
+async function mineBullets(){
+  const ctx=$('ctx').value.trim(); if(!ctx){ alert('Paste the project context first — the miner reads it for real achievements.'); return; }
+  const kind=mineKind(),count=Math.max(1,Math.min(10,+$('mineN').value||5)),sec=section;
+  $('mineGo').disabled=true; $('mineOut').innerHTML='<div class="hint">mining…</div>'; $('log').textContent=''; apiCalls=0; $('cost').textContent='API calls: 0'; activeProvider=null;
+  let ppc=Math.max(fitOf($('pointer').innerHTML,sec).w/Math.max(plain($('pointer').innerHTML).length,1),4);
+  const good=[],seen=new Set(); let feedback='';
+  try{
+    for(let round=1;round<=3 && good.length<count;round++){
+      const need=count-good.length,n=need+(round===1?1:0);
+      const targets=Array.from({length:n},(_,i)=>Math.round(AVAIL[sec]*REQ_FILLS[i%REQ_FILLS.length]/ppc));
+      log(`mine ${kind} · round ${round}: need ${need}`);
+      const variants=parseVariants(await smartRaw(minePrompt(kind,n,targets,[...seen],feedback)));
+      const widths=[],lens=[];
+      for(const v of variants){ const r=makeCandidate(v.text,v.bold,sec); widths.push(r.w); lens.push(plain(r.html).length);
+        const key=plain(r.html).toLowerCase().slice(0,60); if(seen.has(key)) continue; seen.add(key);
+        log(`   ${(r.pct*100).toFixed(1).padStart(5)}%  ${r.complete?(r.fits?'✓':'over'):'incomplete'}  ${plain(r.html).slice(0,44)}`);
+        if(r.complete && r.pct>=SOFT_LO && r.pct<=OVER_MAX) good.push(r);
+      }
+      const ratios=widths.map((w,i)=>w/Math.max(lens[i],1)).filter(x=>x>0); if(ratios.length) ppc=median(ratios);
+      feedback=`give ${count-good.length} more DISTINCT, complete ${kind}; each a logical sentence with a real KPI, 97–100% of the line (under 100%).`;
+    }
+    renderMine(good.sort((a,b)=>qtier(a)-qtier(b)||Math.abs(0.99-a.pct)-Math.abs(0.99-b.pct)).slice(0,count),count);
+  }catch(e){ console.error(e); $('mineOut').innerHTML='<div class="flag bad">⚠ '+e.message+'</div>'; }
+  $('mineGo').disabled=false;
+}
+function renderMine(list,asked){
+  const box=$('mineOut');
+  if(!list.length){ box.innerHTML='<div class="flag warn">Couldn’t fit any — add more numbers/detail to the context, then retry.</div>'; return; }
+  window._mine=list;
+  box.innerHTML=`<div class="row" style="justify-content:space-between;margin:10px 0 2px"><span class="hint" style="margin:0">${list.length}/${asked} fitted ${mineKind()} · ${apiCalls} call${apiCalls>1?'s':''}${activeProvider?' · '+PROVIDERS[activeProvider].label:''}</span><span class="row" style="gap:6px"><button class="mini" onclick="copyMineAll('html')">Copy all</button><button class="mini" onclick="copyMineAll('json')">Copy JSON</button><button class="mini" onclick="defenseMine()">🛡 Check all</button></span></div>`+
+    list.map((x,i)=>{ const pct=Math.round(x.pct*100),cls=fillClass(pct),loc=localDefense(plain(x.html),$('ctx').value),warn=loc.length?`<span class="badge warn" title="${escapeHtml(loc.join(' '))}">⚠</span>`:'';
+      return `<div class="cand"><div class="txt cvfont">${x.html}</div>${cbar(x.pct)}<div class="row" style="justify-content:space-between"><span class="badge ${cls}">${pct}% · ${pct>100?'just over':'fits'} · ${x.w.toFixed(0)}/${x.avail.toFixed(0)}px ${warn}</span><span class="row" style="gap:6px"><button class="mini" onclick="useMine(${i})">Use ↑</button><button class="mini" onclick="copyMine(${i})">Copy</button></span></div></div>`; }).join('');
+}
+window.useMine=i=>{ $('pointer').innerHTML=window._mine[i].html; updateHero(); renderChips(); window.scrollTo({top:0,behavior:'smooth'}); };
+window.copyMine=i=>{ navigator.clipboard?.writeText(window._mine[i].html); toast('copied'); };
+window.copyMineAll=fmt=>{ const l=window._mine||[]; if(!l.length) return;
+  if(fmt==='json'){ navigator.clipboard?.writeText(JSON.stringify(l.map(x=>({id:String(Math.random()),text:x.html,hidden:false})),null,2)); toast('JSON copied — paste into libraryBlocks'); }
+  else { navigator.clipboard?.writeText(l.map(x=>x.html).join('\n')); toast('all copied'); } };
+
+/* =================== DEFENSIBILITY COACH =================== */
+function defensePrompt(bullets,ctx){
+  return `You are a strict placement-interview defensibility coach for résumé bullets.
+Flag a bullet if: (a) a number/metric is NOT supported by the CONTEXT, (b) a claim is implausible or illogical (e.g. >100% reduction, inflated multiplier, vague "10x"), or (c) it uses hollow superlatives (best, world-class, revolutionary) with no proof.
+For each PROBLEM bullet give a SHORT reason an interviewer would doubt it, and a defensible rewrite that stays truthful to the CONTEXT.
+Return STRICT JSON only: {"flags":[{"bullet":"<original>","issue":"<short why>","fix":"<reasonable rewrite>"}]}. Omit bullets that are fine; if all fine return {"flags":[]}.
+
+BULLETS:
+${bullets.map((b,i)=>(i+1)+'. '+b).join('\n')}
+
+CONTEXT:
+${(ctx||'').slice(0,7000)}`;
+}
+async function runDefense(){
+  const ctx=$('ctx').value.trim(), b=plain($('pointer').innerHTML).trim(); if(!b){ alert('Type a pointer first.'); return; }
+  const box=$('defense'), local=localDefense(b,ctx), localHtml=local.map(f=>`<div class="flag warn">⚠ ${escapeHtml(f)}</div>`).join('');
+  box.innerHTML=localHtml+'<div class="hint">running coach…</div>';
+  try{ const flags=(lenientJSON(await smartRaw(defensePrompt([b],ctx))).flags)||[]; window._fixes=flags.map(f=>f.fix);
+    const model=flags.map((f,i)=>{ const fit=fitOf(normalizeBold(f.fix,[]),section); return `<div class="flag bad"><b>⚠ ${escapeHtml(f.issue)}</b><div class="fixline"><span class="cvfont">${escapeHtml(f.fix)}</span><span class="hint" style="margin:0">${Math.round(fit.pct*100)}%</span><button class="mini" onclick="useFix(${i})">Use fix</button></div></div>`; }).join('');
+    box.innerHTML=localHtml+(model || (local.length?'':'<div class="flag ok">🛡 Looks defensible — every number ties to your doc.</div>'));
+  }catch(e){ console.error(e); box.innerHTML=localHtml+'<div class="hint bad">coach unavailable: '+e.message+'</div>'; }
+}
+window.useFix=i=>{ $('pointer').innerHTML=normalizeBold(window._fixes[i],[]); updateHero(); renderChips(); toast('applied defensible fix'); window.scrollTo({top:0,behavior:'smooth'}); };
+window.defenseMine=async()=>{ const ctx=$('ctx').value.trim(), bs=(window._mine||[]).map(x=>plain(x.html)); if(!bs.length) return; toast('checking all…');
+  try{ const flags=(lenientJSON(await smartRaw(defensePrompt(bs,ctx))).flags)||[]; window._fixes=flags.map(f=>f.fix);
+    $('defense').innerHTML=flags.length?flags.map((f,i)=>`<div class="flag bad"><b>⚠ ${escapeHtml(f.issue)}</b><div class="fixline"><span class="cvfont">${escapeHtml(f.fix)}</span><button class="mini" onclick="useFix(${i})">Use fix</button></div></div>`).join(''):'<div class="flag ok">🛡 All mined bullets look defensible.</div>';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(e){ console.error(e); toast('coach error'); } };
+
+/* miner + defense wiring */
+$('mineKind').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; [...$('mineKind').children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); });
+$('mineGo').addEventListener('click',mineBullets);
+$('defBtn').addEventListener('click',runDefense);
+
+/* =================== MY POINTERS (mini library) =================== */
+let SAVED=load('cvps_saved',[]);
+function renderSaved(){ const n=$('savedN'); if(n) n.textContent=SAVED.length; const box=$('savedList'); if(!box) return;
+  if(!SAVED.length){ box.innerHTML='<div class="hint">No saved pointers yet. Perfect one above, then press “✓ Save pointer”. They collect here to copy all at once.</div>'; return; }
+  box.innerHTML=SAVED.map((html,i)=>`<div class="cand"><div class="txt cvfont">${html}</div><div class="row" style="justify-content:flex-end;gap:6px;margin-top:6px"><button class="mini" onclick="editSaved(${i})">Edit ↑</button><button class="mini" onclick="copySaved(${i})">Copy</button><button class="mini" onclick="removeSaved(${i})">✕ remove</button></div></div>`).join(''); }
+function saveCurrentPointer(){ const html=stripEndPeriod($('pointer').innerHTML.trim()); if(!plain(html).trim()){ toast('nothing to save'); return; }
+  if(SAVED.some(s=>plain(s).toLowerCase()===plain(html).toLowerCase())){ toast('already saved'); return; }
+  SAVED.push(html); save('cvps_saved',SAVED); renderSaved(); toast('saved to My pointers ⭐'); }
+window.editSaved=i=>{ $('pointer').innerHTML=SAVED[i]; updateHero(); renderChips(); window.scrollTo({top:0,behavior:'smooth'}); };
+window.copySaved=i=>{ navigator.clipboard?.writeText(SAVED[i]); toast('copied'); };
+window.removeSaved=i=>{ SAVED.splice(i,1); save('cvps_saved',SAVED); renderSaved(); };
+window.copyAllSaved=fmt=>{ if(!SAVED.length){ toast('nothing saved'); return; }
+  if(fmt==='json'){ navigator.clipboard?.writeText(JSON.stringify(SAVED.map(h=>({id:String(Math.random()),text:h,hidden:false})),null,2)); toast('JSON copied — paste into libraryBlocks'); }
+  else { navigator.clipboard?.writeText(SAVED.join('\n')); toast('all pointers copied'); } };
+window.clearSaved=()=>{ if(SAVED.length && confirm('Clear all saved pointers?')){ SAVED=[]; save('cvps_saved',SAVED); renderSaved(); } };
+$('saveBtn').addEventListener('click',saveCurrentPointer);
+
+/* =================== boot =================== */
+fillDomains(); fillProviders(); [...$('fw').children].forEach(b=>b.classList.toggle('on',b.dataset.fw===framework)); positionZones(); renderSaved();
+Promise.all([document.fonts.load(`400 ${FS}px "EB Garamond"`),document.fonts.load(`700 ${FS}px "EB Garamond"`)])
+  .then(()=>{ fontsReady=true; measureAvail(); showAvail(); $('log').textContent=`Ready. Line widths — details ${AVAIL.det.toFixed(1)}px · P.O.R/Awards ${AVAIL.por.toFixed(1)}px.`; updateHero(); renderChips(); })
+  .catch(()=>{ fontsReady=true; measureAvail(); showAvail(); updateHero(); renderChips(); });
+window.addEventListener('resize',()=>{ measureAvail(); positionZones(); showAvail(); updateHero(); });
+</script>
+</body>
+</html>
