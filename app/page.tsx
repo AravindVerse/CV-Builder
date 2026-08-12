@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import LicenseGate from "./components/LicenseGate";
-import Link from 'next/link';
 export default function ResumePage() {
   // --- EXACT PIXEL POSITIONING (STRICTLY PRESERVED) ---
   const [marginTopPx, setMarginTopPx] = useState(16); 
@@ -44,79 +43,6 @@ export default function ResumePage() {
   // --- UI STATES ---
   const [overlayImage, setOverlayImage] = useState<string | null>(null);
   const [overlayOpacity, setOverlayOpacity] = useState(0.5);
-  
-  // --- PROFILE & API KEY STATES ---
-  const [showProfileModal, setShowProfileModal] = useState(false);
-  const [globalApiKey, setGlobalApiKey] = useState("");
-  const [globalApiModel, setGlobalApiModel] = useState("gemini-2.5-flash");
-  const [keyLockTime, setKeyLockTime] = useState<number | null>(null);
-
-  // Sync with Pointer Studio's key storage on boot
-  useEffect(() => {
-    try {
-      const keys = JSON.parse(localStorage.getItem('cvps_keys') || '{}');
-      if (keys.gemini?.key) setGlobalApiKey(keys.gemini.key);
-      if (keys.gemini?.model) setGlobalApiModel(keys.gemini.model);
-      
-      const lockTimestamp = localStorage.getItem('cvps_key_lock');
-      if (lockTimestamp) setKeyLockTime(Number(lockTimestamp));
-    } catch (e) {}
-  }, []);
-
-  // Calculate if the key is currently locked (24 hours = 86400000 ms)
-  const isKeyLocked = keyLockTime ? (Date.now() - keyLockTime) < 86400000 : false;
-  const hoursRemaining = keyLockTime ? Math.ceil((86400000 - (Date.now() - keyLockTime)) / 3600000) : 0;
-
-  const handleSaveGlobalKey = () => {
-    if (isKeyLocked) return alert("You cannot change your API key right now. Please wait.");
-    
-    try {
-      const keys = JSON.parse(localStorage.getItem('cvps_keys') || '{}');
-      keys.gemini = { ...keys.gemini, key: globalApiKey, model: globalApiModel || 'gemini-2.5-flash' };
-      localStorage.setItem('cvps_keys', JSON.stringify(keys));
-      
-      // Set the 24-hour lock timestamp
-      const now = Date.now();
-      localStorage.setItem('cvps_key_lock', now.toString());
-      setKeyLockTime(now);
-      
-      alert("API Configuration saved! You cannot change this key again for 24 hours.");
-      setShowProfileModal(false);
-    } catch (e) {}
-  };
-
-  // Sync with Pointer Studio's key storage on boot
-  useEffect(() => {
-    try {
-      const keys = JSON.parse(localStorage.getItem('cvps_keys') || '{}');
-      if (keys.gemini?.key) setGlobalApiKey(keys.gemini.key);
-      if (keys.gemini?.model) setGlobalApiModel(keys.gemini.model);
-    } catch (e) {}
-  }, []);
-
-  const handleSaveGlobalKey = () => {
-    try {
-      const keys = JSON.parse(localStorage.getItem('cvps_keys') || '{}');
-      keys.gemini = { ...keys.gemini, key: globalApiKey, model: globalApiModel || 'gemini-2.5-flash' };
-      localStorage.setItem('cvps_keys', JSON.stringify(keys));
-      alert("API Configuration saved and synced with Pointer Studio!");
-      setShowProfileModal(false);
-    } catch (e) {}
-  };
-  
-  // Profile & Global API Key States
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [globalApiKey, setGlobalApiKey] = useState("");
-
-  // Sync with Pointer Studio's key storage on boot
-  useEffect(() => {
-    try {
-      const keys = JSON.parse(localStorage.getItem('cvps_keys') || '{}');
-      if (keys.gemini?.key) setGlobalApiKey(keys.gemini.key);
-    } catch (e) {}
-  }, []);
-
-  
   const toolbarRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
 
@@ -732,31 +658,11 @@ export default function ResumePage() {
         <button className="px-2 hover:bg-gray-700 rounded text-sm font-bold" onMouseDown={(e) => { e.preventDefault(); document.execCommand('bold'); }}><b>B</b></button>
       </div>
 
-      {/*   LEFT SIDE: LAYOUT CONTROLS   */}
+      {/* 🛠️ LEFT SIDE: LAYOUT CONTROLS 🛠️ */}
       <div className={`no-print fixed left-4 top-4 w-72 bg-white p-4 shadow-xl border border-gray-200 rounded-lg z-50 max-h-[95vh] overflow-y-auto transition-transform duration-300 ${isFocusMode ? '-translate-x-[150%] pointer-events-none' : 'translate-x-0 pointer-events-auto'}`}>
+        <h3 className="font-sans font-bold text-sm mb-3 border-b pb-2">Layout & Control</h3>
         
-        {/* HEADER & PROFILE ICON */}
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-sans font-bold text-sm">Layout & Control</h3>
-          <button 
-            onClick={() => setShowProfileModal(true)}
-            className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 border border-blue-300 flex items-center justify-center font-bold text-sm hover:bg-blue-200 transition shadow-sm"
-            title="Profile & Settings"
-          >
-            U
-          </button>
-        </div>
-
-        {/* DASHBOARD BUTTON */}
-        <Link 
-          href="/dashboard" 
-          className="w-full bg-gray-900 text-white font-sans text-xs py-2.5 rounded-lg mb-4 transition flex items-center justify-center font-bold shadow-md hover:bg-gray-800 gap-2 border border-gray-700"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg>
-          Go to Dashboard
-        </Link>
-        
-        {/*   GLOBAL VISIBILITY TOGGLE */}
+        {/* 🆕 GLOBAL VISIBILITY TOGGLE */}
         <button 
           onClick={() => setShowHiddenPoints(!showHiddenPoints)} 
           className={`w-full font-sans text-xs py-2 rounded mb-2 transition flex items-center justify-center font-bold shadow ${showHiddenPoints ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-800'}`}
@@ -1259,108 +1165,10 @@ export default function ResumePage() {
             www.linkedin.com/in/
           </p>
         </div>
+
       </div>
       </div>
       
-      {/* --- PROFILE & SETTINGS MODAL --- */}
-      {showProfileModal && (
-        <div 
-          className="fixed inset-0 z-[99999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 font-sans no-print" 
-          onMouseDown={(e) => { if (e.target === e.currentTarget) setShowProfileModal(false); }}
-        >
-          <div className="bg-[#0f1728] border border-[#24324a] rounded-2xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
-            
-            {/* Modal Header */}
-            <div className="flex justify-between items-center p-5 border-b border-[#1e293b] bg-[#0b1220]">
-              <h2 className="text-lg font-bold text-gray-100 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-blue-900/50 text-blue-400 flex items-center justify-center border border-blue-500/30">U</div>
-                User Profile
-              </h2>
-              <button onClick={() => setShowProfileModal(false)} className="text-gray-400 hover:text-white transition text-xl">✕</button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              {/* User Details */}
-              <div className="bg-[#111a2e] border border-[#1e293b] rounded-xl p-4">
-                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-3">Account Details</p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-gray-500">Name:</span> <span className="font-bold text-gray-200">Demo User</span></div>
-                  <div className="flex justify-between"><span className="text-gray-500">Email:</span> <span className="font-bold text-gray-200">user@example.com</span></div>
-                  <div className="flex justify-between"><span className="text-gray-500">License:</span> <span className="font-bold text-red-400">Expires 2026-12-31</span></div>
-                </div>
-              </div>
-
-              {/* API Key Setup */}
-              <div className="bg-[#111a2e] border border-[#1e293b] rounded-xl p-4">
-                <div className="flex justify-between items-center mb-3">
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">AI Model Configuration</p>
-                  {isKeyLocked && (
-                    <span className="text-[10px] bg-red-900/50 text-red-400 px-2 py-0.5 rounded font-bold">
-                      Locked for {hoursRemaining} hours
-                    </span>
-                  )}
-                </div>
-                <div className="space-y-3">
-                  <div>
-                    <label className="text-xs text-gray-500 block mb-1 font-bold">Provider</label>
-                    <select disabled className="w-full bg-[#0b1220] border border-[#334155] rounded-lg px-3 py-2 text-sm text-gray-300 opacity-70 cursor-not-allowed">
-                      <option>Google Gemini (Free Tier)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-gray-500 block mb-1 font-bold">API Key</label>
-                    <input 
-                      type="password" 
-                      value={globalApiKey}
-                      onChange={(e) => setGlobalApiKey(e.target.value)}
-                      placeholder="Enter API Key..."
-                      disabled={isKeyLocked}
-                      className={`w-full bg-[#0b1220] text-gray-200 border border-[#334155] rounded-lg px-3 py-2 text-sm focus:outline-none transition ${isKeyLocked ? 'opacity-50 cursor-not-allowed' : 'focus:border-blue-500'}`}
-                    />
-                  </div>
-                </div>
-              </div>
-                <div className="space-y-3">
-                  <div>
-                    <label className="text-xs text-gray-500 block mb-1 font-bold">Provider</label>
-                    <select disabled className="w-full bg-[#0b1220] border border-[#334155] rounded-lg px-3 py-2 text-sm text-gray-300 opacity-70 cursor-not-allowed">
-                      <option>Google Gemini</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-xs text-gray-500 block mb-1 font-bold">API Key</label>
-                    <input 
-                      type="password" 
-                      value={globalApiKey}
-                      onChange={(e) => setGlobalApiKey(e.target.value)}
-                      placeholder="Enter API Key..."
-                      className="w-full bg-[#0b1220] text-gray-200 border border-[#334155] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 transition"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-xs text-gray-500 block mb-1 font-bold">Model</label>
-                    <input 
-                      type="text" 
-                      value={globalApiModel}
-                      onChange={(e) => setGlobalApiModel(e.target.value)}
-                      placeholder="gemini-2.5-flash"
-                      className="w-full bg-[#0b1220] text-gray-200 border border-[#334155] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 transition"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Actions */}
-            <div className="p-5 border-t border-[#1e293b] bg-[#0b1220] flex justify-end gap-3">
-              <button onClick={() => setShowProfileModal(false)} className="px-4 py-2 rounded-lg text-sm font-bold text-gray-300 hover:bg-[#1e293b] transition">Cancel</button>
-              <button onClick={handleSaveGlobalKey} className="px-4 py-2 rounded-lg text-sm font-bold bg-blue-600 text-white hover:bg-blue-500 transition shadow-lg">Save Configuration</button>
-            </div>
-
-          </div>
-        </div>
-      )}
-
     </main>
     </LicenseGate>
   );
