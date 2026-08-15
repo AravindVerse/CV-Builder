@@ -9,6 +9,8 @@ from flask_cors import CORS
 from cryptography.fernet import Fernet
 import requests
 import webview  # <-- NEW IMPORT
+import shutil
+import datetime
 
 CLOUD_API_URL = "https://aravindtupakula.pythonanywhere.com" # Replace with your live URL
 
@@ -57,6 +59,28 @@ def get_hwid():
     except Exception:
         return "fallback-hwid-error"
 
+
+def backup_local_json():
+    # Only run if there is actually a file to backup
+    if not os.path.exists(data_file_path):
+        return
+        
+    try:
+        # The exact absolute path you requested (using a raw string 'r' to prevent \U folder errors)
+        backup_dir = r"C:\Users\Aravind\Desktop\IIM Mumbai\Me\CV\CV\cv-builder\json backup"
+        
+        # This safely creates the 'json backup' folder if it doesn't exist yet
+        os.makedirs(backup_dir, exist_ok=True)
+        
+        # Create a unique filename with a timestamp (e.g. cv-data_backup_20260816_143000.json)
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_filename = f"cv-data_backup_{timestamp}.json"
+        backup_path = os.path.join(backup_dir, backup_filename)
+        
+        # Safely copy the file
+        shutil.copy2(data_file_path, backup_path)
+    except Exception as e:
+        print(f"Local backup failed: {e}")
 
 def silent_startup_sync():
     key = load_encrypted_license()
@@ -158,6 +182,9 @@ def run_flask():
     app.run(host='127.0.0.1', port=5000, debug=False, use_reloader=False)
 
 def create_launcher():
+    # 0. Trigger the local JSON file backup immediately
+    backup_local_json()
+
     # 1. Trigger the silent cloud backup in the background
     threading.Thread(target=silent_startup_sync, daemon=True).start()
 

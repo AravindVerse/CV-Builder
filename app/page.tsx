@@ -1,8 +1,12 @@
 "use client";
-
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import LicenseGate from "./components/LicenseGate";
+import PIBankPanel from "./components/PIBankPanel";
 export default function ResumePage() {
+  const router = useRouter();
+  
   // --- EXACT PIXEL POSITIONING (STRICTLY PRESERVED) ---
   const [marginTopPx, setMarginTopPx] = useState(16); 
   const [headerHeightPx, setHeaderHeightPx] = useState(55); 
@@ -45,6 +49,10 @@ export default function ResumePage() {
   const [overlayOpacity, setOverlayOpacity] = useState(0.5);
   const toolbarRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
+
+  // --- SECRET BUTTON TRACKING ---
+  const secretClickCount = useRef(0);
+  const secretClickTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const [isMeasuring, setIsMeasuring] = useState(false);
   const [measureStart, setMeasureStart] = useState<{x: number, y: number} | null>(null);
@@ -110,6 +118,8 @@ export default function ResumePage() {
   
   // 🆕 TABS & RIGHT PANEL UI STATES
   const [rightPanelMode, setRightPanelMode] = useState<'library' | 'cvmaker'>('library');
+  const [piLibraryBlocks, setPiLibraryBlocks] = useState<any[]>([]);
+  const [piActiveBlocks, setPiActiveBlocks] = useState<any[]>([]);
   const [newCvName, setNewCvName] = useState('');
   const [libraryTab, setLibraryTab] = useState<'draft' | 'finalised' | 'iim-mumbai'>('draft');
 
@@ -204,6 +214,8 @@ export default function ResumePage() {
           if (d.academics) setAcademics(d.academics);
           if (d.headerData) setHeaderData(d.headerData);
           if (d.pointLibrary) setPointLibrary(d.pointLibrary);
+          if (d.piLibraryBlocks) setPiLibraryBlocks(d.piLibraryBlocks);
+          if (d.piActiveBlocks) setPiActiveBlocks(d.piActiveBlocks);
         }
       } catch (err) {
         console.error("Failed to load CV data from API");
@@ -231,7 +243,9 @@ export default function ResumePage() {
           cvVersions: updatedVersions, 
           currentCvId, 
           academics, 
-          headerData 
+          headerData,
+          piLibraryBlocks,
+          piActiveBlocks
         })
       });
     } catch (err) {}
@@ -248,7 +262,7 @@ export default function ResumePage() {
       
       return () => clearTimeout(autoSaveTimer);
     }
-  }, [isLoaded, pointLibrary, libraryBlocks, activeBlocks, cvVersions, currentCvId, academics, headerData]);
+  }, [isLoaded, pointLibrary, libraryBlocks, activeBlocks, cvVersions, currentCvId, academics, headerData, piLibraryBlocks, piActiveBlocks]);
 
   // --- SMARTER AUTO-SCALE FOR 13-INCH LAPTOPS ---
   useEffect(() => {
@@ -725,18 +739,31 @@ export default function ResumePage() {
         {/* MASTER TOGGLE */}
         <div className="flex font-sans text-sm font-bold mb-4 bg-gray-200 rounded-lg p-1 shadow-inner">
           <button 
-            onClick={() => {
+             onClick={() => {
               setRightPanelMode('library');
-              handleSwitchCv('default'); // 🆕 Instantly auto-saves and routes back to the Master CV
+              handleSwitchCv('default'); // Instantly auto-saves and routes back to the Master CV
+              
+              // Secret Triple-Click Logic
+              secretClickCount.current += 1;
+              if (secretClickCount.current >= 3) {
+                secretClickCount.current = 0;
+                router.push('/pibank'); // Uses Next.js soft-routing to prevent the Flask 404 error
+              }
+              
+              // Resets the counter if you pause for more than 1.2 seconds
+              if (secretClickTimeout.current) clearTimeout(secretClickTimeout.current);
+              secretClickTimeout.current = setTimeout(() => {
+                secretClickCount.current = 0;
+              }, 1200); 
             }} 
-            className={`flex-1 py-1.5 rounded-md transition-all flex items-center justify-center gap-2 ${rightPanelMode === 'library' ? 'bg-white shadow text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}
+             className={`flex-1 py-1.5 rounded-md transition-all flex items-center justify-center gap-2 ${rightPanelMode === 'library' ? 'bg-white shadow text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}
           >
-            📚 Library
+              Library
           </button>
-          <button onClick={() => setRightPanelMode('cvmaker')} className={`flex-1 py-1.5 rounded-md transition-all flex items-center justify-center gap-2 ${rightPanelMode === 'cvmaker' ? 'bg-white shadow text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}>📄 CV Maker</button>
+          <button onClick={() => setRightPanelMode('cvmaker')} className={`flex-1 py-1.5 rounded-md transition-all flex items-center justify-center gap-2 ${rightPanelMode === 'cvmaker' ? 'bg-white shadow text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}>  CV Maker</button>
         </div>
-        
-        {/* CV MAKER CONTROLS (Only visible in CV Maker mode) */}
+
+        {/* LIBRARY ADD BUTTONS (Only visible in Library mode) */}
         {rightPanelMode === 'cvmaker' && (
           <div className="mb-4 border-b pb-4 font-sans bg-blue-50 p-3 rounded-lg border border-blue-100">
             <h4 className="text-xs font-bold text-blue-900 mb-1">Active CV Version</h4>
@@ -764,6 +791,8 @@ export default function ResumePage() {
             </div>
           </div>
         )}
+
+         
 
         {/* LIBRARY ADD BUTTONS (Only visible in Library mode) */}
         {rightPanelMode === 'library' && (
