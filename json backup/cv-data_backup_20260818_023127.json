@@ -1,0 +1,131 @@
+{
+  "academics": [
+    {
+      "degree": "MBA",
+      "institute": "Indian Institute of Management, Mumbai",
+      "score": "Pursuing",
+      "year": "2027"
+    },
+    {
+      "degree": "B.Sc (Computer Science)",
+      "institute": "SVR Degree College, Sattenapalli",
+      "score": "76.46%",
+      "year": "2025"
+    },
+    {
+      "degree": "Class XII",
+      "institute": "FIITJEE Junior College, Vijayawada",
+      "score": "84.30%",
+      "year": "2021"
+    },
+    {
+      "degree": "Class X",
+      "institute": "Jawahar Navodaya Vidyalaya, Maddirala",
+      "score": "80.02%",
+      "year": "2019"
+    }
+  ],
+  "currentCvId": "default",
+  "cvVersions": [
+    {
+      "blocks": [],
+      "id": "default",
+      "name": "Master CV"
+    }
+  ],
+  "headerData": {
+    "banner": "Sustainability | Power BI | 3D Artist | Botanophile",
+    "line1": "Male, 21 years",
+    "line2": "MBA, Batch 25 - 27",
+    "name": "Aravind Tupakula"
+  },
+  "libraryBlocks": [
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.8804700539463984",
+          "text": ""
+        }
+      ],
+      "company": "Company Name",
+      "date": "Month'YY-Month'YY",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.05251353304842599",
+          "text": ""
+        }
+      ],
+      "id": "int-1",
+      "title": "Project Title: Your Project Name",
+      "type": "internship"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.12386591872551633",
+          "text": ""
+        }
+      ],
+      "company": "Organization Name",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.33379884587015773",
+          "text": ""
+        }
+      ],
+      "id": "proj-1",
+      "title": "Project Title: Your Project Name",
+      "type": "project"
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.3651610171844901",
+          "text": ""
+        }
+      ],
+      "id": "por-1",
+      "role": "Your Role",
+      "type": "por",
+      "years": "YYYY<br/>YYYY"
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.3856685191648147",
+          "text": ""
+        }
+      ],
+      "category": "Category Name",
+      "id": "awa-1",
+      "type": "award",
+      "years": "YYYY<br/>YYYY"
+    }
+  ],
+  "piActiveBlocks": [
+    {
+      "id": "pi-bucket-1787000440415",
+      "category": "Projects",
+      "title": "New Project Name",
+      "tags": [
+        "draft"
+      ],
+      "questions": [
+        {
+          "id": "q-1787000440415",
+          "q": "Type your question here...",
+          "a": "Type your answer here..<div><br></div><details open=\"\"><summary contenteditable=\"false\">\ud83d\udcca Pasted Table Data (Click to expand)</summary><table><thead><tr><th style=\"background-color: rgb(241, 245, 249); font-weight: bold;\"><div style=\"resize: horizontal; overflow: hidden; min-width: 50px; width: 544px; padding-right: 5px;\">Scenario</div></th><th style=\"background-color: rgb(241, 245, 249); font-weight: bold;\"><div style=\"resize: horizontal; overflow: hidden; min-width: 50px; width: 150px; padding-right: 5px;\">Calculation</div></th><th align=\"right\" style=\"background-color: rgb(241, 245, 249); font-weight: bold;\"><div style=\"resize: horizontal; overflow: hidden; min-width: 50px; width: 150px; padding-right: 5px;\">Profit Impact</div></th></tr></thead><tbody><tr><td><strong>Base Case</strong></td><td>\u20b9100 selling price \u2212 \u20b990 cost</td><td align=\"right\"><strong>\u20b910 profit</strong></td></tr><tr><td><strong>\u20b91 increase in Sales</strong></td><td>\u20b9101 revenue \u2212 additional variable costs</td><td align=\"right\"><strong>Only a fraction of \u20b91 becomes profit</strong></td></tr><tr><td><strong>\u20b91 Procurement Saving</strong></td><td>\u20b9100 selling price \u2212 <strong>\u20b989 cost</strong></td><td align=\"right\"><strong>\u20b911 profit</strong></td></tr></tbody></table></details><div><br></div><div><br></div><div>.</div>"
+        }
+      ]
+    }
+  ],
+  "piLibraryBlocks": [],
+  "pointLibrary": []
+}

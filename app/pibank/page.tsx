@@ -7,10 +7,12 @@ export default function PIBankPage() {
   const [piLibraryBlocks, setPiLibraryBlocks] = useState<any[]>([]);
   const [piActiveBlocks, setPiActiveBlocks] = useState<any[]>([]);
   const [draggedBlockId, setDraggedBlockId] = useState<string | null>(null);
+  const [draggedQuestion, setDraggedQuestion] = useState<{bucketId: string, qId: string} | null>(null);
   
   const [fullData, setFullData] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [piTab, setPiTab] = useState<'draft' | 'finalised'>('draft');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // --- AUTO-LOAD VIA API ---
   useEffect(() => {
@@ -86,6 +88,41 @@ export default function PIBankPage() {
   const onDragOver = (e: React.DragEvent) => {
     e.preventDefault(); e.dataTransfer.dropEffect = 'move';
   };
+  const onQuestionDrop = (e: React.DragEvent, targetBucketId: string, targetQId: string) => {
+    e.preventDefault();
+    e.stopPropagation(); // Prevents the block drop logic from accidentally firing
+    if (!draggedQuestion) return;
+
+    const { bucketId: sourceBucketId, qId: sourceQId } = draggedQuestion;
+    
+    // Safety check: Prevent doing anything if dropped on itself
+    if (sourceBucketId === targetBucketId && sourceQId === targetQId) {
+      setDraggedQuestion(null);
+      return;
+    }
+
+    // Deep clone the array to guarantee React triggers a visual re-render
+    const newActive = piActiveBlocks.map(b => ({ ...b, questions: [...b.questions] }));
+    
+    const sourceBucket = newActive.find(b => b.id === sourceBucketId);
+    const targetBucket = newActive.find(b => b.id === targetBucketId);
+    
+    if (sourceBucket && targetBucket) {
+      // Find BOTH indices BEFORE removing anything so the math doesn't break
+      const sourceIdx = sourceBucket.questions.findIndex((q: any) => q.id === sourceQId);
+      const targetIdx = targetBucket.questions.findIndex((q: any) => q.id === targetQId);
+      
+      if (sourceIdx > -1 && targetIdx > -1) {
+        // 1. Remove the item from its original spot
+        const [movedQ] = sourceBucket.questions.splice(sourceIdx, 1);
+        // 2. Insert it into the perfectly calculated target spot
+        targetBucket.questions.splice(targetIdx, 0, movedQ);
+        setPiActiveBlocks(newActive);
+      }
+    }
+    setDraggedQuestion(null);
+  };
+
   const onDropZone = (e: React.DragEvent, zone: 'active' | 'library') => {
     e.preventDefault();
     if (!draggedBlockId) return;
@@ -137,6 +174,20 @@ export default function PIBankPage() {
             const summary = doc.createElement('summary');
             summary.innerHTML = '📊 Pasted Table Data (Click to expand)';
             summary.setAttribute('contenteditable', 'false'); // Prevents browser from treating the button as typed text
+            
+            // --- INJECT RESIZABLE COLUMNS FOR EXCEL ---
+            // Wraps the first row in resizable divs to bypass the browser's table-cell block
+            const firstRow = table.querySelector('tr');
+            if (firstRow) {
+              firstRow.querySelectorAll('td, th').forEach(cell => {
+                const htmlCell = cell as HTMLElement; // Tell TypeScript this is an HTMLElement
+                const text = htmlCell.innerHTML;
+                htmlCell.innerHTML = `<div style="resize: horizontal; overflow: hidden; min-width: 50px; width: 150px; padding-right: 5px;">${text}</div>`;
+                htmlCell.style.backgroundColor = '#f1f5f9';
+                htmlCell.style.fontWeight = 'bold';
+              });
+            }
+            // ------------------------------------------
             
             // Wrap the table
             table.parentElement.insertBefore(details, table);
@@ -206,28 +257,39 @@ export default function PIBankPage() {
       <style>{`
         /* Styles to make pasted Excel tables look beautiful */
         .pi-editor table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; background: white; }
-        .pi-editor th, .pi-editor td { border: 1px solid #cbd5e1; padding: 6px 10px; text-align: left; }
-        .pi-editor th { background-color: #f1f5f9; font-weight: bold; }
+        .pi-editor th, .pi-editor td { border: 1px solid #cbd5e1; padding: 6px 10px; text-align: left; word-wrap: break-word; }
         .pi-editor td { color: #334155; }
         
         /* Auto-collapse table styles */
-        .pi-editor details { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 8px; margin: 10px 0; }
+        .pi-editor details { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 8px; margin: 10px 0; overflow-x: auto; }
         .pi-editor summary { font-weight: 700; color: #2563eb; cursor: pointer; font-size: 12px; outline: none; user-select: none; }
       `}</style>
 
       {/* ================= LEFT SIDE: PI LIBRARY ================= */}
       <div 
-        className="fixed left-4 top-4 w-80 bg-white p-4 shadow-xl border border-blue-200 rounded-lg z-50 h-[95vh] flex flex-col"
+        className={`fixed left-4 top-4 bg-white shadow-xl border border-blue-200 rounded-lg z-50 h-[95vh] flex flex-col transition-all duration-300 ${isSidebarOpen ? 'w-80 p-4' : 'w-16 p-2 items-center'}`}
         onDragOver={onDragOver} 
         onDrop={(e) => onDropZone(e, 'library')}
       >
-        {/* Header & Back Button */}
-        <div className="flex justify-between items-center mb-4 border-b pb-3">
-          <h2 className="font-bold text-gray-800 text-sm">PI Prep Library</h2>
-          <Link href="/" className="text-[10px] bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded font-bold text-gray-700 shadow-sm transition-colors border border-gray-200">
-            ← Back to CV
-          </Link>
-        </div>
+        {!isSidebarOpen ? (
+          <button onClick={() => setIsSidebarOpen(true)} className="mt-2 bg-blue-100 hover:bg-blue-200 text-blue-800 p-3 rounded-lg font-bold shadow-sm flex flex-col items-center gap-2" title="Expand Library">
+            <span>▶</span>
+            <span className="text-[10px] uppercase tracking-widest mt-1" style={{ writingMode: 'vertical-rl' }}>Library</span>
+          </button>
+        ) : (
+          <>
+            {/* Header & Back Button */}
+            <div className="flex justify-between items-center mb-4 border-b pb-3">
+              <h2 className="font-bold text-gray-800 text-sm">PI Prep Library</h2>
+              <div className="flex gap-2">
+                <button onClick={() => setIsSidebarOpen(false)} className="text-[10px] bg-blue-50 hover:bg-blue-100 text-blue-700 px-2 py-1 rounded font-bold shadow-sm transition-colors border border-blue-200">
+                  ◀ Collapse
+                </button>
+                <Link href="/" className="text-[10px] bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded font-bold text-gray-700 shadow-sm transition-colors border border-gray-200">
+                  ← Back to CV
+                </Link>
+              </div>
+            </div>
 
         {/* Add Bucket Buttons */}
         <div className="flex flex-wrap gap-2 font-sans text-xs mb-3 border-b pb-3">
@@ -284,10 +346,12 @@ export default function PIBankPage() {
             <div className="text-xs text-gray-400 text-center mt-4 font-bold">No buckets found in this tab.</div>
           )}
         </div>
+        </>
+      )}
       </div>
 
       {/* ================= RIGHT SIDE: A4 CANVAS DROPZONE ================= */}
-      <div className="ml-[340px] flex-1 max-w-4xl p-4">
+      <div className={`transition-all duration-300 flex-1 p-4 ${isSidebarOpen ? 'ml-[340px] max-w-4xl' : 'ml-[80px] max-w-full w-full pr-8'}`}>
         <div 
           className="min-h-[90vh] bg-transparent pb-24"
           onDragOver={onDragOver} 
@@ -325,10 +389,29 @@ export default function PIBankPage() {
               </div>
 
               {/* Questions List */}
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {block.questions.map((item: any) => (
-                  <div key={item.id} className="relative group/q">
+                  <details 
+                    key={item.id} 
+                    className="relative group/q bg-white border border-gray-200 rounded-lg p-4 shadow-sm transition-all marker:hidden [&::-webkit-details-marker]:hidden"
+                    onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); e.dataTransfer.dropEffect = 'move'; }}
+                    onDrop={(e) => onQuestionDrop(e, block.id, item.id)}
+                  >
                     
+                    {/* Drag Question Handle */}
+                    <div 
+                      draggable 
+                      onDragStart={(e) => {
+                        e.stopPropagation();
+                        setDraggedQuestion({ bucketId: block.id, qId: item.id });
+                        e.dataTransfer.effectAllowed = 'move';
+                      }} 
+                      className="absolute -left-2 top-4 cursor-move opacity-0 group-hover/q:opacity-100 bg-gray-200 text-gray-600 px-1 py-0.5 rounded shadow-sm text-xs font-bold z-10" 
+                      title="Drag to reorder question"
+                    >
+                      ↕
+                    </div>
+
                     {/* Delete Question Button */}
                     <button 
                       onClick={() => removeQuestion(block.id, item.id)} 
@@ -337,20 +420,23 @@ export default function PIBankPage() {
                       ×
                     </button>
 
-                    {/* Question Field */}
-                    <div className="font-serif font-bold text-lg text-black mb-2 flex items-start">
-                        <span className="text-blue-600 mr-2 mt-1">Q:</span>
+                    {/* Question Field (Click to Expand/Collapse) */}
+                    <summary className="font-serif font-bold text-lg text-black flex items-start cursor-pointer list-none outline-none">
+                        {/* Expand/Collapse Arrow */}
+                        <span className="text-blue-400 mr-3 mt-1.5 text-[10px] transition-transform group-open/q:rotate-90 flex-shrink-0">▶</span>
+                        <span className="text-blue-600 mr-2 mt-1 flex-shrink-0">Q:</span>
                         <div 
                           contentEditable 
                           suppressContentEditableWarning 
+                          onClick={(e) => e.stopPropagation()} // Prevents typing from collapsing the view
                           onBlur={(e) => updateQA(block.id, item.id, 'q', e.currentTarget.innerHTML)} 
                           dangerouslySetInnerHTML={{__html: item.q}} 
-                          className="pi-editor outline-none focus:bg-yellow-50 w-full p-1 rounded transition-colors" 
+                          className="pi-editor outline-none focus:bg-yellow-50 w-full p-1 rounded transition-colors cursor-text" 
                         />
-                    </div>
+                    </summary>
                     
-                    {/* Answer Field (Now perfectly editable with a DIV) */}
-                    <div className="font-serif text-[15px] text-gray-800 bg-blue-50/30 rounded-lg border border-blue-100 flex items-start p-3">
+                    {/* Answer Field (Hidden until expanded) */}
+                    <div className="font-serif text-[15px] text-gray-800 bg-blue-50/30 rounded-lg border border-blue-100 flex items-start p-3 mt-4 ml-6">
                         <span className="text-green-600 font-bold mr-2">A:</span>
                         <div 
                           contentEditable 
@@ -360,7 +446,7 @@ export default function PIBankPage() {
                           className="pi-editor outline-none w-full min-h-[80px] focus:bg-white focus:shadow-sm p-1 rounded whitespace-pre-wrap transition-colors leading-relaxed" 
                         />
                     </div>
-                  </div>
+                  </details>
                 ))}
               </div>
 
