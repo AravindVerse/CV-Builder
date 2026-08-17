@@ -42,7 +42,12 @@ export default function PIBankPage() {
   const saveToServer = async (libBlocks: any[], actBlocks: any[]) => {
     if (!fullData) return;
     try {
-      await fetch('/api/cv-data', {
+      // Use the exact same dynamic URL logic as the load function
+      const API_URL = process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:5000/api/cv-data' 
+        : '/api/cv-data';
+
+      await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...fullData, piLibraryBlocks: libBlocks, piActiveBlocks: actBlocks })
@@ -116,11 +121,53 @@ export default function PIBankPage() {
   };
 
   const updateQA = (bucketId: string, qId: string, field: 'q' | 'a', text: string) => {
+    let processedText = text;
+    
+    // Auto-wrap bare tables in collapsible <details> tags
+    if (processedText.includes('<table')) {
+      try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(processedText, 'text/html');
+        let modified = false;
+        
+        doc.querySelectorAll('table').forEach(table => {
+          // Check if it's not already wrapped in a details tag
+          if (table.parentElement && table.parentElement.tagName.toLowerCase() !== 'details') {
+            const details = doc.createElement('details');
+            const summary = doc.createElement('summary');
+            summary.innerHTML = '📊 Pasted Table Data (Click to expand)';
+            summary.setAttribute('contenteditable', 'false'); // Prevents browser from treating the button as typed text
+            
+            // Wrap the table
+            table.parentElement.insertBefore(details, table);
+            details.appendChild(summary);
+            details.appendChild(table);
+            
+            // Automatically add TWO empty, clickable lines after the table
+            const spacer1 = doc.createElement('div');
+            spacer1.innerHTML = '<br>';
+            const spacer2 = doc.createElement('div');
+            spacer2.innerHTML = '<br>';
+            
+            // Insert them sequentially right after the collapsed table
+            details.insertAdjacentElement('afterend', spacer1);
+            spacer1.insertAdjacentElement('afterend', spacer2);
+            
+            modified = true;
+          }
+        });
+        
+        if (modified) processedText = doc.body.innerHTML;
+      } catch (e) {
+        console.error("Table parse error", e);
+      }
+    }
+
     const newActive = [...piActiveBlocks];
     const bucket = newActive.find(b => b.id === bucketId);
     if (!bucket) return;
     const qItem = bucket.questions.find((q: any) => q.id === qId);
-    if (qItem) qItem[field] = text;
+    if (qItem) qItem[field] = processedText;
     setPiActiveBlocks(newActive);
   };
 
@@ -156,6 +203,18 @@ export default function PIBankPage() {
   return (
     <main className="text-black bg-gray-50 min-h-screen py-8 flex relative overflow-x-hidden">
       
+      <style>{`
+        /* Styles to make pasted Excel tables look beautiful */
+        .pi-editor table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; background: white; }
+        .pi-editor th, .pi-editor td { border: 1px solid #cbd5e1; padding: 6px 10px; text-align: left; }
+        .pi-editor th { background-color: #f1f5f9; font-weight: bold; }
+        .pi-editor td { color: #334155; }
+        
+        /* Auto-collapse table styles */
+        .pi-editor details { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 8px; margin: 10px 0; }
+        .pi-editor summary { font-weight: 700; color: #2563eb; cursor: pointer; font-size: 12px; outline: none; user-select: none; }
+      `}</style>
+
       {/* ================= LEFT SIDE: PI LIBRARY ================= */}
       <div 
         className="fixed left-4 top-4 w-80 bg-white p-4 shadow-xl border border-blue-200 rounded-lg z-50 h-[95vh] flex flex-col"
@@ -286,7 +345,7 @@ export default function PIBankPage() {
                           suppressContentEditableWarning 
                           onBlur={(e) => updateQA(block.id, item.id, 'q', e.currentTarget.innerHTML)} 
                           dangerouslySetInnerHTML={{__html: item.q}} 
-                          className="outline-none focus:bg-yellow-50 w-full p-1 rounded transition-colors" 
+                          className="pi-editor outline-none focus:bg-yellow-50 w-full p-1 rounded transition-colors" 
                         />
                     </div>
                     
@@ -298,7 +357,7 @@ export default function PIBankPage() {
                           suppressContentEditableWarning 
                           onBlur={(e) => updateQA(block.id, item.id, 'a', e.currentTarget.innerHTML)} 
                           dangerouslySetInnerHTML={{__html: item.a}} 
-                          className="outline-none w-full min-h-[80px] focus:bg-white focus:shadow-sm p-1 rounded whitespace-pre-wrap transition-colors leading-relaxed" 
+                          className="pi-editor outline-none w-full min-h-[80px] focus:bg-white focus:shadow-sm p-1 rounded whitespace-pre-wrap transition-colors leading-relaxed" 
                         />
                     </div>
                   </div>

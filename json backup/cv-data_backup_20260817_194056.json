@@ -1,0 +1,1965 @@
+{
+  "pointLibrary": [],
+  "libraryBlocks": [
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.5883098299160147",
+          "text": "Compressed <b>Dispatch Planning Cycle by 97%+</b>, replacing manual allocation with <b>optimization-driven workflows</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.440991059466203",
+          "text": "Achieved <b>95-98%</b> <b>planning</b> <b>accuracy</b> across <b>2,000</b>+ <b>invoices</b> through constraint validation &amp; business rule enforcement"
+        },
+        {
+          "hidden": false,
+          "id": "0.6232674325374287",
+          "text": "Maximized <b>Vehicle</b> <b>Utilization</b> <b>from</b> <b>76%</b> <b>to</b> <b>80%+</b> through constraint-driven load consolidation &amp; <b>fleet</b> <b>optimization</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.08075390576170194",
+          "text": "<b>Developed AI-powered</b> agents automating <b>logistics</b> <b>analysis,</b> <b>optimization</b> recommendations &amp; exception monitoring"
+        },
+        {
+          "hidden": false,
+          "id": "0.7375317981675363",
+          "text": "Identified <b>5.17% Freight-to-Net Sales reduction</b> opportunity through analysis of <b>5 months of freight dispatch data</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.6084755612147768",
+          "text": "<b>Enabled 100% Constraint</b> Compliance through centralized customer, fleet and <b>routing rule enforcement </b>mechanism"
+        },
+        {
+          "hidden": false,
+          "id": "0.025733722409642",
+          "text": "<b>Identified \u20b91.46 Cr annual savings opportunity</b>, with projected <b>21,900%</b> <b>first-year</b> <b>ROI</b> and &lt;5-day payback period"
+        }
+      ],
+      "company": "Freudenberg Gala Household Product Pvt Ltd\n\n",
+      "date": "Date",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.017650511696500115",
+          "text": "Architected a <b>WMS-native optimization</b> platform for <b>550+ customers</b> and <b>182 SKUs </b>using <b>AI-driven planning</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.49734401552748464",
+          "text": "<b>Automated</b> <b>DO</b> <b>processing</b>, <b>stock</b> <b>validation</b> &amp; invoice clubbing, eliminating Excel-based dispatch planning workflows"
+        },
+        {
+          "hidden": false,
+          "id": "0.3236270477917197",
+          "text": "Engineered a <b>MILP-based vehicle optimization model</b> incorporating <b>22+ constraints</b> for fleet dispatch load planning"
+        },
+        {
+          "hidden": false,
+          "id": "0.05670178456157393",
+          "text": "Engineered <b>MILP-based vehicle optimization model</b> incorporating <b>22 operational constraints</b> for dispatch planning"
+        },
+        {
+          "hidden": false,
+          "id": "0.44691705491894673",
+          "text": "Built a <b>dyanamic constraint-management framework</b>, centralizing business rules and <b>reducing planner dependency</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.36499808735317407",
+          "text": "<b>Integrated FTL-PTL decision intelligence</b> with <b>dynamic freight</b> benchmarking for <b>shipment mode optimization</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.5926194924319302",
+          "text": "Developed <b>real</b>-<b>time</b> <b>planning</b> dashboards monitoring <b>1,600</b>+ monthly invoices, utilization and dispatch readiness levels"
+        }
+      ],
+      "id": "int-1786912092471",
+      "tags": [
+        "finalised",
+        "iim-mumbai"
+      ],
+      "title": "Project Title: Logistics Planning &amp; Optimization using AI\n\n",
+      "type": "internship"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.11468195932428482",
+          "text": "Computerized student attendance tracking, <b>saving 10+ hours</b> per month and <b>reducing faculty workload</b> significantly&nbsp;"
+        },
+        {
+          "hidden": false,
+          "id": "0.7799031989131756",
+          "text": "Improved reporting efficiency <b>by reducing generation time by 50%</b>, enabling quicker delivery of detailed performance"
+        },
+        {
+          "hidden": false,
+          "id": "0.8313178353453097",
+          "text": "Built a resilient file <b>I/O pipeline</b>, increasing data throughput <b>by 40%</b> across <b>5+ modules</b> through efficient data handling"
+        }
+      ],
+      "company": "Dream India Technologies\n\n",
+      "date": "Date",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.9656709598936202",
+          "text": "<b>Collaborated with faculty teams</b> to gather requirements and align with <b>academic workflows</b> for smoother adoption"
+        },
+        {
+          "hidden": false,
+          "id": "0.5188193912448279",
+          "text": "Built a scalable <b>student management system using OOP</b>, automating academic records <b>for 200+ </b>students efficiently"
+        },
+        {
+          "hidden": false,
+          "id": "0.4558661858700819",
+          "text": "Designed a <b>user-focused interface for faculty</b> to improve adoption &amp; engagement <b>across the academic departments</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.5763922809835457",
+          "text": "Engineered <b>Python analytics tool with GUI &amp; Seaborn</b>, enabling real-time academic performance visuals and insights"
+        },
+        {
+          "hidden": false,
+          "id": "0.8137221226010772",
+          "text": "Streamlined <b>data parsing&nbsp;&amp; serialization, reduced latency, </b>enhanced efficiency and optimized <b>analytics workflows</b>"
+        }
+      ],
+      "id": "int-1786912281560",
+      "tags": [
+        "finalised"
+      ],
+      "title": "Project Title: Student Performance Analytics and Management System\n\n",
+      "type": "internship"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.24375422153676352",
+          "text": "Analyzed all 408 SKUs for price volatility, isolating 48 high-risk items with 50%+ swings as forward-buy &amp; buffer targets"
+        },
+        {
+          "hidden": false,
+          "id": "0.3925540106476655",
+          "text": "<b>Shifted procurement from reactive to predictive buying</b>, timing buys ahead of forecast price rises to hedge input cost"
+        },
+        {
+          "hidden": false,
+          "id": "0.3044346249378601",
+          "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.890418504189127",
+          "text": "<b>Improved tempered glass forecast accuracy 3x</b>, compressing error from 12.35% to 3.92% via specification-level split"
+        },
+        {
+          "hidden": false,
+          "id": "0.5998198052414702",
+          "text": "<b>Identified \u20b9307 Cr</b> net <b>forward-buying opportunity</b> at <b>~10:1 gain-loss</b> by timing buys a <b>month ahead</b> of price rises"
+        }
+      ],
+      "company": "\n\nVikram Solar\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.027159119222655126",
+          "text": "<b>Analyzed</b>&nbsp;<b>\u20b96,372</b>&nbsp;<b>Cr</b>&nbsp;<b>procurement</b>&nbsp;<b>spend&nbsp;</b>across&nbsp;<b>6,300+ POs</b>&nbsp;&amp;&nbsp;<b>408 SKUs</b>&nbsp;spanning 5 years,&nbsp;<b>161 recurring&nbsp;suppliers</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.8424866270414891",
+          "text": "Engineered <b>20+ price drivers</b> from 6,307 procurement records across 240 suppliers, 10 Incoterms &amp; 5 years of spend"
+        },
+        {
+          "hidden": false,
+          "id": "0.5787912758227659",
+          "text": "<b>Architected price forecasting engine</b> benchmarking 7 ML algorithms via 5-fold cross-validation, auto-selecting best fit"
+        },
+        {
+          "hidden": false,
+          "id": "0.25964872468523215",
+          "text": "Automated <b>SARIMA selection</b> across 100+ configurations, generating 12-month price forecasts with confidence bands"
+        },
+        {
+          "hidden": false,
+          "id": "0.8949661103765212",
+          "text": "Built <b>forward-buying trigger</b> linking 12-month price forecasts to advance-purchase timing by material"
+        },
+        {
+          "hidden": false,
+          "id": "0.4030686524759928",
+          "text": "Screened all 408 SKUs for price volatility, flagging <b>48 with 50%+ swings</b> as forward-buy &amp; buffer candidates"
+        },
+        {
+          "hidden": false,
+          "id": "0.9784704868192579",
+          "text": "<b>Isolated 7 materials</b> driving 92.5% of \u20b96,372 Cr spend, directing forecasting effort to the highest price risk"
+        },
+        {
+          "hidden": false,
+          "id": "0.962001151236412",
+          "text": "<b>Cross-validated best-fit model to 7.75% error</b> on solar cell prices, auto-selected over 6 competing algorithms"
+        },
+        {
+          "hidden": false,
+          "id": "0.9902416919509812",
+          "text": "Designed a <b>forward-buying decision framework</b> converting forecasts to advance-purchase signals ahead of price spikes"
+        },
+        {
+          "hidden": false,
+          "id": "0.9252934251871465",
+          "text": "Delivered <b>12-month forward price</b> visibility across 7 high-spend materials, equipping buyers to time buys &amp; set budgets"
+        }
+      ],
+      "id": "proj-1786912408240",
+      "tags": [
+        "draft"
+      ],
+      "title": "Project Title:\n\nPrice Forecasting &amp; Forward-Buying Strategy\n\n",
+      "type": "project"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.7639443124044526",
+          "text": "Established 4-DC as the <b>composite optimum</b> at <b>80.4 baseline &amp; 66.9 disruption </b>on the weighted suitability index"
+        },
+        {
+          "hidden": false,
+          "id": "0.43663683038988177",
+          "text": "Exposed <b>15% profit erosion</b> &amp; <b>2x spoilage</b> inflation over the 4-to-10-DC over-build the network-fragmentation penalty"
+        },
+        {
+          "hidden": false,
+          "id": "0.2855839893745985",
+          "text": "Recommended a 4-DC footprint pairing demand-proportional inventory &amp; peak-season pre-positioning vs uniform stock"
+        }
+      ],
+      "company": "\n\nSchreiber Foods\n\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.944867602967904",
+          "text": "Simulated demand, <b>production, spoilage</b> &amp; dispatch in a day-by-day <b>cold-chain digital twin</b> of <b>900 nodes &amp; 3 plants</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.6931976287187283",
+          "text": "<b>Traced</b> the post-4-DC profit reversal to <b>inventory</b> <b>fragmentation</b> inflating <b>spoilage</b>, markdown price and holding cost"
+        },
+        {
+          "hidden": false,
+          "id": "0.19263887871234942",
+          "text": "Scored <b>7 weighted criteria</b> spanning service, <b>profit</b>, cost, carbon and <b>spoilage</b> into a composite <b>suitability index</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.34693228826516365",
+          "text": "<b>Evaluated 10 DC-network configurations </b>on <b>cost-to-serve</b>, service, spoilage &amp; profit across a 1-to-10 density sweep"
+        },
+        {
+          "hidden": false,
+          "id": "0.3373900194564363",
+          "text": "Located the <b>4-DC network optimum</b>, resolving the <b>centralization-vs-decentralization</b> trade-off across a 3-6 DC zone"
+        },
+        {
+          "hidden": false,
+          "id": "0.05144304680816303",
+          "text": "Weighted service, cost, profit, carbon, spoilage &amp; transit waste in a <b>7-criteria MCDA composite suitability index</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.21151418059338123",
+          "text": "Stress-tested 10 networks under peak-season <b>demand-shock disruption</b>, elevating cold-chain <b>transit-waste cost</b>"
+        }
+      ],
+      "id": "proj-1786912816795",
+      "tags": [
+        "draft"
+      ],
+      "title": "Project Title: Cold-Chain Distribution Network Design &amp; Optimization\n\n",
+      "type": "project"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.2696009082005112",
+          "text": "<b>Optimized</b> facility allocation across <b>931</b> <b>FPS</b>, reducing transportation distance by <b>3,412</b> <b>km</b> via <b>network</b> <b>optimization</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.9171542070172282",
+          "text": "<b>Eliminated</b> redundant handling stages by routing <b>direct mill to shop</b> dispatch, cutting loading, unloading and lead time"
+        },
+        {
+          "hidden": false,
+          "id": "0.0361980109054284",
+          "text": "Consolidated <b>optimal supply to 16 of 51 godowns</b>, proving surplus in warehouse capacity for network rationalization"
+        },
+        {
+          "hidden": false,
+          "id": "0.38157137053759027",
+          "text": "<b>Diagnosed</b>&nbsp;supply chain traceability gaps across <b>70%</b> <b>of transportation movements</b>, strengthening monitoring controls"
+        },
+        {
+          "hidden": false,
+          "id": "0.6432006924824566",
+          "text": "Formulated <b>district-level sourcing strategy</b> delivering <b>3.1% lower logistics distance</b> while preserving zone boundaries"
+        }
+      ],
+      "company": "Comptroller and Auditor General of India\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.9440082168112798",
+          "text": "<b>Audited</b> <b>696,983</b> <b>GPS&nbsp;</b>telemetry packets under AIS-140 protocol, structuring clean trajectory data for the <b>fleet</b> <b>netwo</b>rk"
+        },
+        {
+          "hidden": false,
+          "id": "0.8698928077937209",
+          "text": "<b>Reconciled</b> <b>8,041</b>&nbsp;<b>planned</b> <b>trips</b>&nbsp;against live GPS data across first &amp; last mile legs, revealing only 30% reached execution"
+        },
+        {
+          "hidden": false,
+          "id": "0.6520456024848726",
+          "text": "<b>Optimized</b> capacitated multi drop routing for <b>931</b> retail outlets at 20T capacity to minimize total <b>last</b> <b>mile</b> <b>delivery</b> <b>cos</b>t"
+        },
+        {
+          "hidden": false,
+          "id": "0.9714175751920833",
+          "text": "<b>Mapped</b> <b>end</b> <b>to</b> <b>end</b> food grain movement across mills, godowns and FPS to assess <b>distribution</b> <b>network</b> <b>effectiveness</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.8020054806983259",
+          "text": "Identified <b>1,242 Fair</b> <b>Price</b> <b>Shops</b> lacking verified last-mile deliveries through GPS proximity analysis across four districts"
+        },
+        {
+          "hidden": false,
+          "id": "0.08673712881164519",
+          "text": "Uncovered storage constraints of&nbsp;<b>3,200</b> <b>MT</b> highlighting warehouse capacity bottlenecks limiting network responsivenes"
+        },
+        {
+          "hidden": false,
+          "id": "0.4716308385411373",
+          "text": "<b>Identified</b> stockout exposure across <b>15 of 23</b> depots through <b>inventory risk assessmen</b>t and <b>demand-cover analysis</b>"
+        }
+      ],
+      "id": "proj-1786912407397",
+      "tags": [
+        "finalised",
+        "iim-mumbai"
+      ],
+      "title": "Project Title: Logistics Analytics and Distribution Network Optimization for Kerala PD\n\n",
+      "type": "project"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.8429013527346961",
+          "text": "Boosted <b>OEE by 25% by cutting inspection delays 40%</b> and streamlining <b>QA workflows</b> across all production stages"
+        },
+        {
+          "hidden": false,
+          "id": "0.662594017965275",
+          "text": "Enhanced <b>production quality</b> by deploying real-time <b>ML</b> inspection, cutting the <b>defect escape rate by 30%</b> accurately"
+        },
+        {
+          "hidden": false,
+          "id": "0.2787715984040112",
+          "text": "<b>Optimized defect annotation</b> via semi-automated tools, reducing data prep time by&nbsp;<b>35%</b>&nbsp;&amp; speeding up model training"
+        }
+      ],
+      "company": "\n\nSVR Degree College\n\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.35504134560120926",
+          "text": "Improved <b>defect traceability by 45%</b> through agile model tuning &amp; enhanced <b>closed-loop</b> feedback mechanism design"
+        },
+        {
+          "hidden": false,
+          "id": "0.5732272209154947",
+          "text": "Implemented <b>agile model</b> tuning with <b>closed loop feedback cycle</b> to improve traceability &amp; detection accuracy metrics"
+        },
+        {
+          "hidden": false,
+          "id": "0.5591760318781973",
+          "text": "Built and tuned <b>CNN</b> model to automate <b>defect detection </b>using <b>15K+ </b>well annotated <b>manufacturing</b>&nbsp;image datasets"
+        },
+        {
+          "hidden": false,
+          "id": "0.7564816512872591",
+          "text": "Engineered real-time defect classification using <b>machine learning</b> to enhance <b>QA system</b> response and output precision"
+        },
+        {
+          "hidden": false,
+          "id": "0.7584390106495589",
+          "text": "Enabled quicker <b>root cause analysis of defects </b>by providing granular, real-time data insights, <b>for efficiency and speed</b>"
+        }
+      ],
+      "id": "proj-1786912817740",
+      "tags": [
+        "finalised"
+      ],
+      "title": "Project Title:&nbsp;\n\nML-Based Automated Defect Detection System for Manufacturing Quality Control \n\n",
+      "type": "project"
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.6555675652335998",
+          "text": "Scaled community engagement <b>by 40%</b> via high-impact local field activation <b>events</b> &amp; immersive <b>outreach campaigns</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.47965093062286224",
+          "text": "Forged impactful <b>alliances with 15+ partners to improve outreach</b> efficiency &amp; stakeholder conversion effectiveness"
+        },
+        {
+          "hidden": false,
+          "id": "0.23965117312141204",
+          "text": "Drove <b>60% spike in volunteer</b> <b>turnout </b>by deploying behaviour-led and data-informed outreach <b>in schools &amp; colleges</b>"
+        }
+      ],
+      "company": "\n\nWe Are with You Charitable Trust\n\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.653275699047601",
+          "text": "Amplified <b>stakeholder engagement</b> via hyperlocal <b>campaigns</b> across segmented &amp; underserved community ecosystems"
+        },
+        {
+          "hidden": false,
+          "id": "0.7169519291184937",
+          "text": "Designed collaborative <b>outreach networks</b> for schools &amp; rural hubs, enabling <b>long-term visibility</b>, access, &amp; inclusion"
+        },
+        {
+          "hidden": false,
+          "id": "0.4706580502926553",
+          "text": "Engaged in real-time <b>social impact projects </b>focused on <b>community welfare</b>, data collection, &amp; detailed reporting tasks"
+        },
+        {
+          "hidden": false,
+          "id": "0.9360396691743488",
+          "text": "Used <b>digital platform tools</b> to streamline outreach efforts, improve team coordination, and to track engagement impact"
+        }
+      ],
+      "id": "proj-1786912818264",
+      "tags": [
+        "finalised"
+      ],
+      "title": "Project Title: Community Outreach and Engagement Strategy\n\n",
+      "type": "project"
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.4997231166825338",
+          "text": "<b>Digitalized</b> <b>end-to-end</b> hostel &amp; mess <b>operations</b> <b>for</b> <b>1,100+ </b>students through centralized <b>digital workflows</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.791895873074578",
+          "text": "<b>Redesigned</b> new <b>student</b> <b>onboarding</b> to compress the manual <b>registration</b> <b>TAT</b> from <b>3-4</b> <b>hrs</b> <b>to</b> <b>20-30</b> <b>mins</b>"
+        }
+      ],
+      "id": "por-1786913073490",
+      "role": "\n\nStudent Affairs,\nIIM Mumbai\n\n",
+      "tags": [
+        "finalised",
+        "iim-mumbai"
+      ],
+      "type": "por",
+      "years": ""
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.7103366369845845",
+          "text": "Elected <b>class representative</b> from <b>150+ peers</b>; enabled strong faculty-student ties and resolved issues effectively"
+        },
+        {
+          "hidden": false,
+          "id": "0.9748809329053012",
+          "text": "Assisted <b>160</b> juniors during the <b>orientation</b> by organizing <b>academic</b> support sessions to facilitate their transition"
+        }
+      ],
+      "id": "por-1786913092297",
+      "role": "\n\nCR, Comp Dept\n\n\n",
+      "tags": [
+        "finalised"
+      ],
+      "type": "por",
+      "years": ""
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.717873220456625",
+          "text": "Drove <b>eco-health drives in 10+ villages</b>, impacting <b>3K+</b> lives via kit distribution, planting &amp; awareness drives"
+        },
+        {
+          "hidden": false,
+          "id": "0.47450585183947847",
+          "text": "Increased the <b>Footfall by 27%</b> through promoting a <b>Blood Donatio</b>n camp held by regional police authorities"
+        }
+      ],
+      "id": "por-1",
+      "role": "\n\nEvent Head,\nSocial Impact\n\n",
+      "tags": [
+        "finalised"
+      ],
+      "type": "por",
+      "years": "<br>"
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.2976250661305557",
+          "text": "Achieved <b>20%</b> surplus on <b>\u20b975K</b> Samiksha fest budget through precise tracking &amp; strategic vendor collaboration"
+        },
+        {
+          "hidden": false,
+          "id": "0.8043565486846929",
+          "text": "Executed <b>Freshers\u2019 Program</b> for <b>300+ attendee</b>s, optimizing costs and coordinating <b>20+ vendor</b> partnerships"
+        },
+        {
+          "hidden": false,
+          "id": "0.9807201405450338",
+          "text": "<b>Organized</b> section wars&nbsp;events, managed equipment &amp; scheduling, contributing to <b>100%</b> event completion rate"
+        }
+      ],
+      "id": "por-1786937981018",
+      "role": "\n\nStudent Council,\nSVR\n\n",
+      "tags": [
+        "finalised"
+      ],
+      "type": "por",
+      "years": ""
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.05896789627450949",
+          "text": "Developed <b>AnyLogistix</b> <b>simulation</b> models for <b>network</b> <b>optimization</b> and <b>scenario</b> <b>analysis</b> in supply chains"
+        },
+        {
+          "hidden": false,
+          "id": "0.9184353127137452",
+          "text": "Developed AnyLogistix simulation for <b>automotive</b> network <b>optimization</b> &amp; scenario analysis for <b>Tata Motors</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.8043613171771732",
+          "text": "Enabled <b>30+ Tata Motors executives</b> to evaluate network trade-offs through hands-on supply chain simulation"
+        },
+        {
+          "hidden": false,
+          "id": "0.17562176161693266",
+          "text": "Developed <b>GenAI</b> <b>powered</b> <b>prototype</b> for <b>CMA</b> <b>CGM</b>, validating maritime logistics decision-support use cases"
+        }
+      ],
+      "category": "\n\nIIM Mumbai\nSRIC\n\n",
+      "id": "awa-1",
+      "tags": [
+        "finalised",
+        "iim-mumbai"
+      ],
+      "type": "award",
+      "years": "<br>"
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.9774274952630837",
+          "text": "Led distribution of <b>2K+ safety kits</b> across <b>10+ villages,</b> driving health and last-mile delivery as <b>Outreach Lead</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.8305765188072389",
+          "text": "Secured <b>1st Runner-up </b>among <b>16 teams </b>and 180+ players in a regional-level inter-college kabaddi tournament"
+        },
+        {
+          "hidden": false,
+          "id": "0.6001361945266529",
+          "text": "Led <b>anti-ragging campaign</b> with local <b>Police</b>, sensitizing <b>1K+ students </b>and boosting campus safety awareness"
+        },
+        {
+          "hidden": false,
+          "id": "0.49274843863538753",
+          "text": "Conceptualized and led an <b>anti smoking&nbsp;</b>drive in <b>schools</b>, engaging <b>400+</b> students through interactive content"
+        },
+        {
+          "hidden": false,
+          "id": "0.5367047605352826",
+          "text": "Led <b>World Environment Day</b>, organizing plantation drives, and eco-pledges engaging<b> 700+ </b>students &amp; locals"
+        },
+        {
+          "hidden": false,
+          "id": "0.6480726697075119",
+          "text": "Spearheaded a <b>Green India Mission campaign</b>, planting <b>300+</b> saplings &amp; hosting eco-literacy sessions for <b>500+</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.27052410321925535",
+          "text": "Contributed to <b>eco-awareness</b> drives on waste management engaging <b>800+ students</b> using sustainable practices"
+        },
+        {
+          "hidden": false,
+          "id": "0.09725267871321164",
+          "text": "Debated <b>Yoga vs Other Sports on Sports Day</b>, advocated yoga\u2019s core benefits, praised for clarity and balance"
+        },
+        {
+          "hidden": false,
+          "id": "0.049552143913606406",
+          "text": "Debated on <b>Online vs Offline Classes Pros &amp; Cons</b> appreciated for balanced views &amp; relevant real life example"
+        }
+      ],
+      "category": "\n\nExtra Curriculars\n\n",
+      "id": "awa-1786938039528",
+      "tags": [
+        "finalised"
+      ],
+      "type": "award",
+      "years": ""
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.16060089219228202",
+          "text": "Awarded top grade out of <b>120+</b> for building <b>interactive Python apps </b>with <b>Tkinter</b>, such as <b>digital notepad</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.45859975363612226",
+          "text": "Ranked in top <b>15% of 150+ </b>students with O &amp; A+ grades in <b>18 core courses</b>, showcasing strong academic rigor"
+        }
+      ],
+      "category": "\n\nAcademics\n\n",
+      "id": "awa-1786938040138",
+      "tags": [
+        "finalised"
+      ],
+      "type": "award",
+      "years": ""
+    },
+    {
+      "bullets": [
+        {
+          "hidden": false,
+          "id": "0.01162519239846882",
+          "text": "Completed <b>Unilever's Supply Chain Management and Analytic</b>s a online course offered through Coursera"
+        },
+        {
+          "hidden": false,
+          "id": "0.6917417209958312",
+          "text": "Completed Data Analysts Toolbox: <b>Excel</b>, <b>Python</b>, <b>Power</b> <b>BI</b>, <b>PivotTables</b>, a data analysis course from Udemy"
+        },
+        {
+          "hidden": false,
+          "id": "0.36559652365417883",
+          "text": "Completed <b>IMD\u2019s Sustainability for Business: ESG Fundamentals</b> a online course offered through Coursera"
+        }
+      ],
+      "category": "\n\nCertifications\n\n",
+      "id": "awa-1786938281922",
+      "tags": [
+        "finalised"
+      ],
+      "type": "award",
+      "years": ""
+    },
+    {
+      "achievements": [
+        {
+          "hidden": false,
+          "id": "0.08301044173515237",
+          "text": "<b>Isolated 7 material categories</b> driving <b>92% of \u20b96,372 Cr spend</b>, focusing sourcing bandwidth on the key cost drivers&nbsp;&nbsp;"
+        },
+        {
+          "hidden": false,
+          "id": "0.25266073355220653",
+          "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.6324556493523495",
+          "text": "<b>Flagged </b>uncontrolled <b>risk </b>transfer, with <b>74 of 161 supplier</b>s on multiple Incoterms &amp; <b>19 suppliers on 3+ Incoterms</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.6581659454348193",
+          "text": "<b>Identified forward-buying opportunity</b> across <b>48 of 408 SKUs </b>with <b>50%+ price swings</b> in 2024\u201325 buying cycle"
+        },
+        {
+          "hidden": false,
+          "id": "0.06730450237773111",
+          "text": "<b>Improved</b> tempered glass <b>forecast accuracy 3x</b>, cutting price forecast error from <b>12.35% to 3.92% </b>by specification split"
+        },
+        {
+          "hidden": false,
+          "id": "0.0784567102005801",
+          "text": "<b>Established import sourcing case</b>, with only <b>7 of 43 dual-currency items</b> cheaper in INR, protecting landed cost"
+        },
+        {
+          "hidden": false,
+          "id": "0.17951477322993614",
+          "text": "<b>Classified the supplier base</b> from <b>vested strategic</b> to avoid, converting supplier scores into <b>executable sourcing calls</b>"
+        }
+      ],
+      "company": "Vikram Solar\n\n\n",
+      "date": "Duration",
+      "details": [
+        {
+          "hidden": false,
+          "id": "0.6427296589432471",
+          "text": "<b>Analyzed</b> <b>\u20b96,372</b> <b>Cr</b> <b>procurement</b> <b>spend </b>across <b>6,300+ POs</b> &amp; <b>408 SKUs</b> spanning 5 years, <b>161 recurring&nbsp;suppliers</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.9536672787222054",
+          "text": "<b>Rebuilt</b> <b>procurement</b> <b>taxonomy</b>, consolidating 41 raw materials into <b>14</b> <b>standard</b> <b>categories</b> for category-level analysis"
+        },
+        {
+          "hidden": false,
+          "id": "0.646005560733587",
+          "text": "Architected quantitative <b>Kraljic framework</b> scoring <b>14 material categories</b> with <b>9 weighted sourcing parameters</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.6116677928719583",
+          "text": "<b>Quantified</b> <b>supply</b> <b>risk</b> using <b>6</b> <b>weighted</b> <b>drivers</b> including incoterm risk transfer, credit terms &amp; market concentration"
+        },
+        {
+          "hidden": false,
+          "id": "0.40742107013682094",
+          "text": "Designed <b>5-parameter Supplier Importance</b> <b>Score</b> ranking suppliers for <b>7</b> <b>critical</b> <b>raw</b> <b>material</b>s into&nbsp;<b>7</b> <b>sourcing</b> <b>tiers</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.9667756248551935",
+          "text": "<b>Benchmarked</b> <b>supplier markup</b> against best available <b>price per SKU</b>, turning price dispersion to <b>negotiation leverage</b>"
+        },
+        {
+          "hidden": false,
+          "id": "0.28452938269631867",
+          "text": "<b>Engineered price forecasting</b> framework benchmarking <b>5 machine learning &amp; 3 time-series models</b> for <b>7 materials</b>"
+        }
+      ],
+      "id": "proj-1786912404063",
+      "tags": [
+        "finalised",
+        "iim-mumbai"
+      ],
+      "title": "Project Title: Strategic Sourcing &amp; Procurement Analytics | Procurement Analytics &amp; Strategic Sourcing\n\n",
+      "type": "project"
+    }
+  ],
+  "cvVersions": [
+    {
+      "blocks": [
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.7639443124044526",
+              "text": "Established 4-DC as the <b>composite optimum</b> at <b>80.4 baseline &amp; 66.9 disruption </b>on the weighted suitability index"
+            },
+            {
+              "hidden": false,
+              "id": "0.43663683038988177",
+              "text": "Exposed <b>15% profit erosion</b> &amp; <b>2x spoilage</b> inflation over the 4-to-10-DC over-build the network-fragmentation penalty"
+            },
+            {
+              "hidden": false,
+              "id": "0.2855839893745985",
+              "text": "Recommended a 4-DC footprint pairing demand-proportional inventory &amp; peak-season pre-positioning vs uniform stock"
+            }
+          ],
+          "company": "\n\nSchreiber Foods\n\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.944867602967904",
+              "text": "Simulated demand, <b>production, spoilage</b> &amp; dispatch in a day-by-day <b>cold-chain digital twin</b> of <b>900 nodes &amp; 3 plants</b>"
+            },
+            {
+              "id": "0.9275441124903253",
+              "text": "<b>Built</b> a 365-day <b>cold-chain digital</b> <b>twin</b> across 100 demand nodes, <b>3</b> <b>plants</b> &amp; <b>6</b> <b>perishable</b> <b>SKUs&nbsp;</b>over 20 scenario runs",
+              "hidden": false
+            },
+            {
+              "hidden": false,
+              "id": "0.6931976287187283",
+              "text": "<b>Traced</b> the post-4-DC profit reversal to <b>inventory</b> <b>fragmentation</b> inflating <b>spoilage</b>, markdown price and holding cost"
+            },
+            {
+              "id": "0.4423952965115989",
+              "text": "<b>Screened 10 DC </b>footprints on <b>cost-to-serve</b>, <b>fill rate</b>, stockouts, <b>spoilage &amp; margin</b> across 1-to-10 DC density steps",
+              "hidden": false
+            },
+            {
+              "hidden": false,
+              "id": "0.19263887871234942",
+              "text": "Scored <b>7 weighted criteria</b> spanning service, <b>profit</b>, cost, carbon and <b>spoilage</b> into a composite <b>suitability index</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.34693228826516365",
+              "text": "<b>Evaluated 10 DC-network configurations </b>on <b>cost-to-serve</b>, service, spoilage &amp; profit across a 1-to-10 density sweep"
+            },
+            {
+              "hidden": false,
+              "id": "0.3373900194564363",
+              "text": "Located the <b>4-DC network optimum</b>, resolving the <b>centralization-vs-decentralization</b> trade-off across a 3-6 DC zone"
+            },
+            {
+              "hidden": false,
+              "id": "0.05144304680816303",
+              "text": "Weighted service, cost, profit, carbon, spoilage &amp; transit waste in a <b>7-criteria MCDA composite suitability index</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.21151418059338123",
+              "text": "Stress-tested 10 networks under peak-season <b>demand-shock disruption</b>, elevating cold-chain <b>transit-waste cost</b>"
+            }
+          ],
+          "id": "proj-1786912816795-1786968127766",
+          "tags": [
+            "draft"
+          ],
+          "title": "Project Title: Cold-Chain Distribution Network Design &amp; Optimization\n\n",
+          "type": "project"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.24375422153676352",
+              "text": "Analyzed all 408 SKUs for price volatility, isolating 48 high-risk items with 50%+ swings as forward-buy &amp; buffer targets"
+            },
+            {
+              "hidden": false,
+              "id": "0.3925540106476655",
+              "text": "<b>Shifted procurement from reactive to predictive buying</b>, timing buys ahead of forecast price rises to hedge input cost"
+            },
+            {
+              "hidden": false,
+              "id": "0.3044346249378601",
+              "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.890418504189127",
+              "text": "<b>Improved tempered glass forecast accuracy 3x</b>, compressing error from 12.35% to 3.92% via specification-level split"
+            },
+            {
+              "hidden": false,
+              "id": "0.5998198052414702",
+              "text": "<b>Identified \u20b9307 Cr</b> net <b>forward-buying opportunity</b> at <b>~10:1 gain-loss</b> by timing buys a <b>month ahead</b> of price rises"
+            }
+          ],
+          "company": "\n\nVikram Solar\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.027159119222655126",
+              "text": "<b>Analyzed</b>&nbsp;<b>\u20b96,372</b>&nbsp;<b>Cr</b>&nbsp;<b>procurement</b>&nbsp;<b>spend&nbsp;</b>across&nbsp;<b>6,300+ POs</b>&nbsp;&amp;&nbsp;<b>408 SKUs</b>&nbsp;spanning 5 years,&nbsp;<b>161 recurring&nbsp;suppliers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8424866270414891",
+              "text": "Engineered <b>20+ price drivers</b> from 6,307 procurement records across 240 suppliers, 10 Incoterms &amp; 5 years of spend"
+            },
+            {
+              "hidden": false,
+              "id": "0.5787912758227659",
+              "text": "<b>Architected price forecasting engine</b> benchmarking 7 ML algorithms via 5-fold cross-validation, auto-selecting best fit"
+            },
+            {
+              "hidden": false,
+              "id": "0.25964872468523215",
+              "text": "Automated <b>SARIMA selection</b> across 100+ configurations, generating 12-month price forecasts with confidence bands"
+            },
+            {
+              "hidden": false,
+              "id": "0.8949661103765212",
+              "text": "Built <b>forward-buying trigger</b> linking 12-month price forecasts to advance-purchase timing by material"
+            },
+            {
+              "hidden": false,
+              "id": "0.4030686524759928",
+              "text": "Screened all 408 SKUs for price volatility, flagging <b>48 with 50%+ swings</b> as forward-buy &amp; buffer candidates"
+            },
+            {
+              "hidden": false,
+              "id": "0.9784704868192579",
+              "text": "<b>Isolated 7 materials</b> driving 92.5% of \u20b96,372 Cr spend, directing forecasting effort to the highest price risk"
+            },
+            {
+              "hidden": false,
+              "id": "0.962001151236412",
+              "text": "<b>Cross-validated best-fit model to 7.75% error</b> on solar cell prices, auto-selected over 6 competing algorithms"
+            },
+            {
+              "hidden": false,
+              "id": "0.9902416919509812",
+              "text": "Designed a <b>forward-buying decision framework</b> converting forecasts to advance-purchase signals ahead of price spikes"
+            },
+            {
+              "hidden": false,
+              "id": "0.9252934251871465",
+              "text": "Delivered <b>12-month forward price</b> visibility across 7 high-spend materials, equipping buyers to time buys &amp; set budgets"
+            }
+          ],
+          "id": "proj-1786912408240-1786968129357",
+          "tags": [
+            "draft"
+          ],
+          "title": "Project Title:\n\nPrice Forecasting &amp; Forward-Buying Strategy\n\n",
+          "type": "project"
+        }
+      ],
+      "id": "default",
+      "name": "Master CV"
+    },
+    {
+      "blocks": [
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.5883098299160147",
+              "text": "Compressed <b>Dispatch Planning Cycle by 97%+</b>, replacing manual allocation with <b>optimization-driven workflows</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.440991059466203",
+              "text": "Achieved <b>95-98%</b> <b>planning</b> <b>accuracy</b> across <b>2,000</b>+ <b>invoices</b> through constraint validation &amp; business rule enforcement"
+            },
+            {
+              "hidden": false,
+              "id": "0.6232674325374287",
+              "text": "Maximized <b>Vehicle</b> <b>Utilization</b> <b>from</b> <b>76%</b> <b>to</b> <b>80%+</b> through constraint-driven load consolidation &amp; <b>fleet</b> <b>optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.08075390576170194",
+              "text": "<b>Developed AI-powered</b> agents automating <b>logistics</b> <b>analysis,</b> <b>optimization</b> recommendations &amp; exception monitoring"
+            },
+            {
+              "hidden": false,
+              "id": "0.7375317981675363",
+              "text": "Identified <b>5.17% Freight-to-Net Sales reduction</b> opportunity through analysis of <b>5 months of freight dispatch data</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6084755612147768",
+              "text": "<b>Enabled 100% Constraint</b> Compliance through centralized customer, fleet and <b>routing rule enforcement </b>mechanism"
+            },
+            {
+              "hidden": false,
+              "id": "0.025733722409642",
+              "text": "<b>Identified \u20b91.46 Cr annual savings opportunity</b>, with projected <b>21,900%</b> <b>first-year</b> <b>ROI</b> and &lt;5-day payback period"
+            }
+          ],
+          "company": "Freudenberg Gala Household Product Pvt Ltd\n\n",
+          "date": "Date",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.017650511696500115",
+              "text": "Architected a <b>WMS-native optimization</b> platform for <b>550+ customers</b> and <b>182 SKUs </b>using <b>AI-driven planning</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.49734401552748464",
+              "text": "<b>Automated</b> <b>DO</b> <b>processing</b>, <b>stock</b> <b>validation</b> &amp; invoice clubbing, eliminating Excel-based dispatch planning workflows"
+            },
+            {
+              "hidden": false,
+              "id": "0.3236270477917197",
+              "text": "Engineered a <b>MILP-based vehicle optimization model</b> incorporating <b>22+ constraints</b> for fleet dispatch load planning"
+            },
+            {
+              "hidden": false,
+              "id": "0.05670178456157393",
+              "text": "Engineered <b>MILP-based vehicle optimization model</b> incorporating <b>22 operational constraints</b> for dispatch planning"
+            },
+            {
+              "hidden": false,
+              "id": "0.44691705491894673",
+              "text": "Built a <b>dyanamic constraint-management framework</b>, centralizing business rules and <b>reducing planner dependency</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.36499808735317407",
+              "text": "<b>Integrated FTL-PTL decision intelligence</b> with <b>dynamic freight</b> benchmarking for <b>shipment mode optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.5926194924319302",
+              "text": "Developed <b>real</b>-<b>time</b> <b>planning</b> dashboards monitoring <b>1,600</b>+ monthly invoices, utilization and dispatch readiness levels"
+            }
+          ],
+          "id": "int-1786912092471-1786967834072",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Logistics Planning &amp; Optimization using AI\n\n",
+          "type": "internship"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.08301044173515237",
+              "text": "<b>Isolated 7 material categories</b> driving <b>92% of \u20b96,372 Cr spend</b>, focusing sourcing bandwidth on the key cost drivers&nbsp;&nbsp;"
+            },
+            {
+              "hidden": false,
+              "id": "0.25266073355220653",
+              "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6324556493523495",
+              "text": "<b>Flagged </b>uncontrolled <b>risk </b>transfer, with <b>74 of 161 supplier</b>s on multiple Incoterms &amp; <b>19 suppliers on 3+ Incoterms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6581659454348193",
+              "text": "<b>Identified forward-buying opportunity</b> across <b>48 of 408 SKUs </b>with <b>50%+ price swings</b> in 2024\u201325 buying cycle"
+            },
+            {
+              "hidden": false,
+              "id": "0.06730450237773111",
+              "text": "<b>Improved</b> tempered glass <b>forecast accuracy 3x</b>, cutting price forecast error from <b>12.35% to 3.92% </b>by specification split"
+            },
+            {
+              "hidden": false,
+              "id": "0.0784567102005801",
+              "text": "<b>Established import sourcing case</b>, with only <b>7 of 43 dual-currency items</b> cheaper in INR, protecting landed cost"
+            },
+            {
+              "hidden": false,
+              "id": "0.17951477322993614",
+              "text": "<b>Classified the supplier base</b> from <b>vested strategic</b> to avoid, converting supplier scores into <b>executable sourcing calls</b>"
+            }
+          ],
+          "company": "Vikram Solar\n\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.6427296589432471",
+              "text": "<b>Analyzed</b> <b>\u20b96,372</b> <b>Cr</b> <b>procurement</b> <b>spend </b>across <b>6,300+ POs</b> &amp; <b>408 SKUs</b> spanning 5 years, <b>161 recurring&nbsp;suppliers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9536672787222054",
+              "text": "<b>Rebuilt</b> <b>procurement</b> <b>taxonomy</b>, consolidating 41 raw materials into <b>14</b> <b>standard</b> <b>categories</b> for category-level analysis"
+            },
+            {
+              "hidden": false,
+              "id": "0.646005560733587",
+              "text": "Architected quantitative <b>Kraljic framework</b> scoring <b>14 material categories</b> with <b>9 weighted sourcing parameters</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6116677928719583",
+              "text": "<b>Quantified</b> <b>supply</b> <b>risk</b> using <b>6</b> <b>weighted</b> <b>drivers</b> including incoterm risk transfer, credit terms &amp; market concentration"
+            },
+            {
+              "hidden": false,
+              "id": "0.40742107013682094",
+              "text": "Designed <b>5-parameter Supplier Importance</b> <b>Score</b> ranking suppliers for <b>7</b> <b>critical</b> <b>raw</b> <b>material</b>s into&nbsp;<b>7</b> <b>sourcing</b> <b>tiers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9667756248551935",
+              "text": "<b>Benchmarked</b> <b>supplier markup</b> against best available <b>price per SKU</b>, turning price dispersion to <b>negotiation leverage</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.28452938269631867",
+              "text": "<b>Engineered price forecasting</b> framework benchmarking <b>5 machine learning &amp; 3 time-series models</b> for <b>7 materials</b>"
+            }
+          ],
+          "id": "proj-1786912404063-1786967835469",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Strategic Sourcing &amp; Procurement Analytics | Procurement Analytics &amp; Strategic Sourcing\n\n",
+          "type": "project"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.2696009082005112",
+              "text": "<b>Optimized</b> facility allocation across <b>931</b> <b>FPS</b>, reducing transportation distance by <b>3,412</b> <b>km</b> via <b>network</b> <b>optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9171542070172282",
+              "text": "<b>Eliminated</b> redundant handling stages by routing <b>direct mill to shop</b> dispatch, cutting loading, unloading and lead time"
+            },
+            {
+              "hidden": false,
+              "id": "0.0361980109054284",
+              "text": "Consolidated <b>optimal supply to 16 of 51 godowns</b>, proving surplus in warehouse capacity for network rationalization"
+            },
+            {
+              "hidden": false,
+              "id": "0.38157137053759027",
+              "text": "<b>Diagnosed</b>&nbsp;supply chain traceability gaps across <b>70%</b> <b>of transportation movements</b>, strengthening monitoring controls"
+            },
+            {
+              "hidden": false,
+              "id": "0.6432006924824566",
+              "text": "Formulated <b>district-level sourcing strategy</b> delivering <b>3.1% lower logistics distance</b> while preserving zone boundaries"
+            }
+          ],
+          "company": "Comptroller and Auditor General of India\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.9440082168112798",
+              "text": "<b>Audited</b> <b>696,983</b> <b>GPS&nbsp;</b>telemetry packets under AIS-140 protocol, structuring clean trajectory data for the <b>fleet</b> <b>netwo</b>rk"
+            },
+            {
+              "hidden": false,
+              "id": "0.8698928077937209",
+              "text": "<b>Reconciled</b> <b>8,041</b>&nbsp;<b>planned</b> <b>trips</b>&nbsp;against live GPS data across first &amp; last mile legs, revealing only 30% reached execution"
+            },
+            {
+              "hidden": false,
+              "id": "0.6520456024848726",
+              "text": "<b>Optimized</b> capacitated multi drop routing for <b>931</b> retail outlets at 20T capacity to minimize total <b>last</b> <b>mile</b> <b>delivery</b> <b>cos</b>t"
+            },
+            {
+              "hidden": false,
+              "id": "0.9714175751920833",
+              "text": "<b>Mapped</b> <b>end</b> <b>to</b> <b>end</b> food grain movement across mills, godowns and FPS to assess <b>distribution</b> <b>network</b> <b>effectiveness</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8020054806983259",
+              "text": "Identified <b>1,242 Fair</b> <b>Price</b> <b>Shops</b> lacking verified last-mile deliveries through GPS proximity analysis across four districts"
+            },
+            {
+              "hidden": false,
+              "id": "0.08673712881164519",
+              "text": "Uncovered storage constraints of&nbsp;<b>3,200</b> <b>MT</b> highlighting warehouse capacity bottlenecks limiting network responsivenes"
+            },
+            {
+              "hidden": false,
+              "id": "0.4716308385411373",
+              "text": "<b>Identified</b> stockout exposure across <b>15 of 23</b> depots through <b>inventory risk assessmen</b>t and <b>demand-cover analysis</b>"
+            }
+          ],
+          "id": "proj-1786912407397-1786967836925",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Logistics Analytics and Distribution Network Optimization for Kerala PD\n\n",
+          "type": "project"
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.4997231166825338",
+              "text": "<b>Digitalized</b> <b>end-to-end</b> hostel &amp; mess <b>operations</b> <b>for</b> <b>1,100+ </b>students through centralized <b>digital workflows</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.791895873074578",
+              "text": "<b>Redesigned</b> new <b>student</b> <b>onboarding</b> to compress the manual <b>registration</b> <b>TAT</b> from <b>3-4</b> <b>hrs</b> <b>to</b> <b>20-30</b> <b>mins</b>"
+            }
+          ],
+          "id": "por-1786913073490-1786967840216",
+          "role": "\n\nStudent Affairs,\nIIM Mumbai\n\n",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "type": "por",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.05896789627450949",
+              "text": "Developed <b>AnyLogistix</b> <b>simulation</b> models for <b>network</b> <b>optimization</b> and <b>scenario</b> <b>analysis</b> in supply chains"
+            },
+            {
+              "hidden": false,
+              "id": "0.9184353127137452",
+              "text": "Developed AnyLogistix simulation for <b>automotive</b> network <b>optimization</b> &amp; scenario analysis for <b>Tata Motors</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8043613171771732",
+              "text": "Enabled <b>30+ Tata Motors executives</b> to evaluate network trade-offs through hands-on supply chain simulation"
+            },
+            {
+              "hidden": false,
+              "id": "0.17562176161693266",
+              "text": "Developed <b>GenAI</b> <b>powered</b> <b>prototype</b> for <b>CMA</b> <b>CGM</b>, validating maritime logistics decision-support use cases"
+            }
+          ],
+          "category": "\n\nIIM Mumbai\nSRIC\n\n",
+          "id": "awa-1-1786967841512",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "type": "award",
+          "years": "<br>"
+        }
+      ],
+      "id": "cv-1786967829956",
+      "name": "IIM Mumbai"
+    },
+    {
+      "blocks": [
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.5883098299160147",
+              "text": "Compressed <b>Dispatch Planning Cycle by 97%+</b>, replacing manual allocation with <b>optimization-driven workflows</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.440991059466203",
+              "text": "Achieved <b>95-98%</b> <b>planning</b> <b>accuracy</b> across <b>2,000</b>+ <b>invoices</b> through constraint validation &amp; business rule enforcement"
+            },
+            {
+              "hidden": false,
+              "id": "0.6232674325374287",
+              "text": "Maximized <b>Vehicle</b> <b>Utilization</b> <b>from</b> <b>76%</b> <b>to</b> <b>80%+</b> through constraint-driven load consolidation &amp; <b>fleet</b> <b>optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.08075390576170194",
+              "text": "<b>Developed AI-powered</b> agents automating <b>logistics</b> <b>analysis,</b> <b>optimization</b> recommendations &amp; exception monitoring"
+            },
+            {
+              "hidden": false,
+              "id": "0.7375317981675363",
+              "text": "Identified <b>5.17% Freight-to-Net Sales reduction</b> opportunity through analysis of <b>5 months of freight dispatch data</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6084755612147768",
+              "text": "<b>Enabled 100% Constraint</b> Compliance through centralized customer, fleet and <b>routing rule enforcement </b>mechanism"
+            },
+            {
+              "hidden": false,
+              "id": "0.025733722409642",
+              "text": "<b>Identified \u20b91.46 Cr annual savings opportunity</b>, with projected <b>21,900%</b> <b>first-year</b> <b>ROI</b> and &lt;5-day payback period"
+            }
+          ],
+          "company": "Freudenberg Gala Household Product Pvt Ltd\n\n",
+          "date": "Date",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.017650511696500115",
+              "text": "Architected a <b>WMS-native optimization</b> platform for <b>550+ customers</b> and <b>182 SKUs </b>using <b>AI-driven planning</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.49734401552748464",
+              "text": "<b>Automated</b> <b>DO</b> <b>processing</b>, <b>stock</b> <b>validation</b> &amp; invoice clubbing, eliminating Excel-based dispatch planning workflows"
+            },
+            {
+              "hidden": false,
+              "id": "0.3236270477917197",
+              "text": "Engineered a <b>MILP-based vehicle optimization model</b> incorporating <b>22+ constraints</b> for fleet dispatch load planning"
+            },
+            {
+              "hidden": false,
+              "id": "0.05670178456157393",
+              "text": "Engineered <b>MILP-based vehicle optimization model</b> incorporating <b>22 operational constraints</b> for dispatch planning"
+            },
+            {
+              "hidden": false,
+              "id": "0.44691705491894673",
+              "text": "Built a <b>dyanamic constraint-management framework</b>, centralizing business rules and <b>reducing planner dependency</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.36499808735317407",
+              "text": "<b>Integrated FTL-PTL decision intelligence</b> with <b>dynamic freight</b> benchmarking for <b>shipment mode optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.5926194924319302",
+              "text": "Developed <b>real</b>-<b>time</b> <b>planning</b> dashboards monitoring <b>1,600</b>+ monthly invoices, utilization and dispatch readiness levels"
+            }
+          ],
+          "id": "int-1786912092471-1786968050455",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Logistics Planning &amp; Optimization using AI\n\n",
+          "type": "internship"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.11468195932428482",
+              "text": "Computerized student attendance tracking, <b>saving 10+ hours</b> per month and <b>reducing faculty workload</b> significantly&nbsp;"
+            },
+            {
+              "hidden": false,
+              "id": "0.7799031989131756",
+              "text": "Improved reporting efficiency <b>by reducing generation time by 50%</b>, enabling quicker delivery of detailed performance"
+            },
+            {
+              "hidden": false,
+              "id": "0.8313178353453097",
+              "text": "Built a resilient file <b>I/O pipeline</b>, increasing data throughput <b>by 40%</b> across <b>5+ modules</b> through efficient data handling"
+            }
+          ],
+          "company": "Dream India Technologies\n\n",
+          "date": "Date",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.9656709598936202",
+              "text": "<b>Collaborated with faculty teams</b> to gather requirements and align with <b>academic workflows</b> for smoother adoption"
+            },
+            {
+              "hidden": false,
+              "id": "0.5188193912448279",
+              "text": "Built a scalable <b>student management system using OOP</b>, automating academic records <b>for 200+ </b>students efficiently"
+            },
+            {
+              "hidden": false,
+              "id": "0.4558661858700819",
+              "text": "Designed a <b>user-focused interface for faculty</b> to improve adoption &amp; engagement <b>across the academic departments</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.5763922809835457",
+              "text": "Engineered <b>Python analytics tool with GUI &amp; Seaborn</b>, enabling real-time academic performance visuals and insights"
+            },
+            {
+              "hidden": false,
+              "id": "0.8137221226010772",
+              "text": "Streamlined <b>data parsing&nbsp;&amp; serialization, reduced latency, </b>enhanced efficiency and optimized <b>analytics workflows</b>"
+            }
+          ],
+          "id": "int-1786912281560-1786968051385",
+          "tags": [
+            "finalised"
+          ],
+          "title": "Project Title: Student Performance Analytics and Management System\n\n",
+          "type": "internship"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.08301044173515237",
+              "text": "<b>Isolated 7 material categories</b> driving <b>92% of \u20b96,372 Cr spend</b>, focusing sourcing bandwidth on the key cost drivers&nbsp;&nbsp;"
+            },
+            {
+              "hidden": false,
+              "id": "0.25266073355220653",
+              "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6324556493523495",
+              "text": "<b>Flagged </b>uncontrolled <b>risk </b>transfer, with <b>74 of 161 supplier</b>s on multiple Incoterms &amp; <b>19 suppliers on 3+ Incoterms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6581659454348193",
+              "text": "<b>Identified forward-buying opportunity</b> across <b>48 of 408 SKUs </b>with <b>50%+ price swings</b> in 2024\u201325 buying cycle"
+            },
+            {
+              "hidden": false,
+              "id": "0.06730450237773111",
+              "text": "<b>Improved</b> tempered glass <b>forecast accuracy 3x</b>, cutting price forecast error from <b>12.35% to 3.92% </b>by specification split"
+            },
+            {
+              "hidden": false,
+              "id": "0.0784567102005801",
+              "text": "<b>Established import sourcing case</b>, with only <b>7 of 43 dual-currency items</b> cheaper in INR, protecting landed cost"
+            },
+            {
+              "hidden": false,
+              "id": "0.17951477322993614",
+              "text": "<b>Classified the supplier base</b> from <b>vested strategic</b> to avoid, converting supplier scores into <b>executable sourcing calls</b>"
+            }
+          ],
+          "company": "Vikram Solar\n\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.6427296589432471",
+              "text": "<b>Analyzed</b> <b>\u20b96,372</b> <b>Cr</b> <b>procurement</b> <b>spend </b>across <b>6,300+ POs</b> &amp; <b>408 SKUs</b> spanning 5 years, <b>161 recurring&nbsp;suppliers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9536672787222054",
+              "text": "<b>Rebuilt</b> <b>procurement</b> <b>taxonomy</b>, consolidating 41 raw materials into <b>14</b> <b>standard</b> <b>categories</b> for category-level analysis"
+            },
+            {
+              "hidden": false,
+              "id": "0.646005560733587",
+              "text": "Architected quantitative <b>Kraljic framework</b> scoring <b>14 material categories</b> with <b>9 weighted sourcing parameters</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6116677928719583",
+              "text": "<b>Quantified</b> <b>supply</b> <b>risk</b> using <b>6</b> <b>weighted</b> <b>drivers</b> including incoterm risk transfer, credit terms &amp; market concentration"
+            },
+            {
+              "hidden": false,
+              "id": "0.40742107013682094",
+              "text": "Designed <b>5-parameter Supplier Importance</b> <b>Score</b> ranking suppliers for <b>7</b> <b>critical</b> <b>raw</b> <b>material</b>s into&nbsp;<b>7</b> <b>sourcing</b> <b>tiers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9667756248551935",
+              "text": "<b>Benchmarked</b> <b>supplier markup</b> against best available <b>price per SKU</b>, turning price dispersion to <b>negotiation leverage</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.28452938269631867",
+              "text": "<b>Engineered price forecasting</b> framework benchmarking <b>5 machine learning &amp; 3 time-series models</b> for <b>7 materials</b>"
+            }
+          ],
+          "id": "proj-1786912404063-1786968057431",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Strategic Sourcing &amp; Procurement Analytics | Procurement Analytics &amp; Strategic Sourcing\n\n",
+          "type": "project"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.2696009082005112",
+              "text": "<b>Optimized</b> facility allocation across <b>931</b> <b>FPS</b>, reducing transportation distance by <b>3,412</b> <b>km</b> via <b>network</b> <b>optimization</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9171542070172282",
+              "text": "<b>Eliminated</b> redundant handling stages by routing <b>direct mill to shop</b> dispatch, cutting loading, unloading and lead time"
+            },
+            {
+              "hidden": false,
+              "id": "0.0361980109054284",
+              "text": "Consolidated <b>optimal supply to 16 of 51 godowns</b>, proving surplus in warehouse capacity for network rationalization"
+            },
+            {
+              "hidden": false,
+              "id": "0.38157137053759027",
+              "text": "<b>Diagnosed</b>&nbsp;supply chain traceability gaps across <b>70%</b> <b>of transportation movements</b>, strengthening monitoring controls"
+            },
+            {
+              "hidden": false,
+              "id": "0.6432006924824566",
+              "text": "Formulated <b>district-level sourcing strategy</b> delivering <b>3.1% lower logistics distance</b> while preserving zone boundaries"
+            }
+          ],
+          "company": "Comptroller and Auditor General of India\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.9440082168112798",
+              "text": "<b>Audited</b> <b>696,983</b> <b>GPS&nbsp;</b>telemetry packets under AIS-140 protocol, structuring clean trajectory data for the <b>fleet</b> <b>netwo</b>rk"
+            },
+            {
+              "hidden": false,
+              "id": "0.8698928077937209",
+              "text": "<b>Reconciled</b> <b>8,041</b>&nbsp;<b>planned</b> <b>trips</b>&nbsp;against live GPS data across first &amp; last mile legs, revealing only 30% reached execution"
+            },
+            {
+              "hidden": false,
+              "id": "0.6520456024848726",
+              "text": "<b>Optimized</b> capacitated multi drop routing for <b>931</b> retail outlets at 20T capacity to minimize total <b>last</b> <b>mile</b> <b>delivery</b> <b>cos</b>t"
+            },
+            {
+              "hidden": false,
+              "id": "0.9714175751920833",
+              "text": "<b>Mapped</b> <b>end</b> <b>to</b> <b>end</b> food grain movement across mills, godowns and FPS to assess <b>distribution</b> <b>network</b> <b>effectiveness</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8020054806983259",
+              "text": "Identified <b>1,242 Fair</b> <b>Price</b> <b>Shops</b> lacking verified last-mile deliveries through GPS proximity analysis across four districts"
+            },
+            {
+              "hidden": false,
+              "id": "0.08673712881164519",
+              "text": "Uncovered storage constraints of&nbsp;<b>3,200</b> <b>MT</b> highlighting warehouse capacity bottlenecks limiting network responsivenes"
+            },
+            {
+              "hidden": false,
+              "id": "0.4716308385411373",
+              "text": "<b>Identified</b> stockout exposure across <b>15 of 23</b> depots through <b>inventory risk assessmen</b>t and <b>demand-cover analysis</b>"
+            }
+          ],
+          "id": "proj-1786912407397-1786968058751",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Logistics Analytics and Distribution Network Optimization for Kerala PD\n\n",
+          "type": "project"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.8429013527346961",
+              "text": "Boosted <b>OEE by 25% by cutting inspection delays 40%</b> and streamlining <b>QA workflows</b> across all production stages"
+            },
+            {
+              "hidden": false,
+              "id": "0.662594017965275",
+              "text": "Enhanced <b>production quality</b> by deploying real-time <b>ML</b> inspection, cutting the <b>defect escape rate by 30%</b> accurately"
+            },
+            {
+              "hidden": false,
+              "id": "0.2787715984040112",
+              "text": "<b>Optimized defect annotation</b> via semi-automated tools, reducing data prep time by&nbsp;<b>35%</b>&nbsp;&amp; speeding up model training"
+            }
+          ],
+          "company": "\n\nSVR Degree College\n\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.35504134560120926",
+              "text": "Improved <b>defect traceability by 45%</b> through agile model tuning &amp; enhanced <b>closed-loop</b> feedback mechanism design"
+            },
+            {
+              "hidden": false,
+              "id": "0.5732272209154947",
+              "text": "Implemented <b>agile model</b> tuning with <b>closed loop feedback cycle</b> to improve traceability &amp; detection accuracy metrics"
+            },
+            {
+              "hidden": false,
+              "id": "0.5591760318781973",
+              "text": "Built and tuned <b>CNN</b> model to automate <b>defect detection </b>using <b>15K+ </b>well annotated <b>manufacturing</b>&nbsp;image datasets"
+            },
+            {
+              "hidden": false,
+              "id": "0.7564816512872591",
+              "text": "Engineered real-time defect classification using <b>machine learning</b> to enhance <b>QA system</b> response and output precision"
+            },
+            {
+              "hidden": false,
+              "id": "0.7584390106495589",
+              "text": "Enabled quicker <b>root cause analysis of defects </b>by providing granular, real-time data insights, <b>for efficiency and speed</b>"
+            }
+          ],
+          "id": "proj-1786912817740-1786968062713",
+          "tags": [
+            "finalised"
+          ],
+          "title": "Project Title:&nbsp;\n\nML-Based Automated Defect Detection System for Manufacturing Quality Control \n\n",
+          "type": "project"
+        },
+        {
+          "achievements": [
+            {
+              "hidden": false,
+              "id": "0.08301044173515237",
+              "text": "<b>Isolated 7 material categories</b> driving <b>92% of \u20b96,372 Cr spend</b>, focusing sourcing bandwidth on the key cost drivers&nbsp;&nbsp;"
+            },
+            {
+              "hidden": false,
+              "id": "0.25266073355220653",
+              "text": "Surfaced working <b>capital opportunity, 96 of 161 suppliers</b> had multiple payment terms &amp; <b>13 on 5+ payment terms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6324556493523495",
+              "text": "<b>Flagged </b>uncontrolled <b>risk </b>transfer, with <b>74 of 161 supplier</b>s on multiple Incoterms &amp; <b>19 suppliers on 3+ Incoterms</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6581659454348193",
+              "text": "<b>Identified forward-buying opportunity</b> across <b>48 of 408 SKUs </b>with <b>50%+ price swings</b> in 2024\u201325 buying cycle"
+            },
+            {
+              "hidden": false,
+              "id": "0.06730450237773111",
+              "text": "<b>Improved</b> tempered glass <b>forecast accuracy 3x</b>, cutting price forecast error from <b>12.35% to 3.92% </b>by specification split"
+            },
+            {
+              "hidden": false,
+              "id": "0.0784567102005801",
+              "text": "<b>Established import sourcing case</b>, with only <b>7 of 43 dual-currency items</b> cheaper in INR, protecting landed cost"
+            },
+            {
+              "hidden": false,
+              "id": "0.17951477322993614",
+              "text": "<b>Classified the supplier base</b> from <b>vested strategic</b> to avoid, converting supplier scores into <b>executable sourcing calls</b>"
+            }
+          ],
+          "company": "Vikram Solar\n\n\n",
+          "date": "Duration",
+          "details": [
+            {
+              "hidden": false,
+              "id": "0.6427296589432471",
+              "text": "<b>Analyzed</b> <b>\u20b96,372</b> <b>Cr</b> <b>procurement</b> <b>spend </b>across <b>6,300+ POs</b> &amp; <b>408 SKUs</b> spanning 5 years, <b>161 recurring&nbsp;suppliers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9536672787222054",
+              "text": "<b>Rebuilt</b> <b>procurement</b> <b>taxonomy</b>, consolidating 41 raw materials into <b>14</b> <b>standard</b> <b>categories</b> for category-level analysis"
+            },
+            {
+              "hidden": false,
+              "id": "0.646005560733587",
+              "text": "Architected quantitative <b>Kraljic framework</b> scoring <b>14 material categories</b> with <b>9 weighted sourcing parameters</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.6116677928719583",
+              "text": "<b>Quantified</b> <b>supply</b> <b>risk</b> using <b>6</b> <b>weighted</b> <b>drivers</b> including incoterm risk transfer, credit terms &amp; market concentration"
+            },
+            {
+              "hidden": false,
+              "id": "0.40742107013682094",
+              "text": "Designed <b>5-parameter Supplier Importance</b> <b>Score</b> ranking suppliers for <b>7</b> <b>critical</b> <b>raw</b> <b>material</b>s into&nbsp;<b>7</b> <b>sourcing</b> <b>tiers</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.9667756248551935",
+              "text": "<b>Benchmarked</b> <b>supplier markup</b> against best available <b>price per SKU</b>, turning price dispersion to <b>negotiation leverage</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.28452938269631867",
+              "text": "<b>Engineered price forecasting</b> framework benchmarking <b>5 machine learning &amp; 3 time-series models</b> for <b>7 materials</b>"
+            }
+          ],
+          "id": "proj-1786912404063-1786968064475",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "title": "Project Title: Strategic Sourcing &amp; Procurement Analytics | Procurement Analytics &amp; Strategic Sourcing\n\n",
+          "type": "project"
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.4997231166825338",
+              "text": "<b>Digitalized</b> <b>end-to-end</b> hostel &amp; mess <b>operations</b> <b>for</b> <b>1,100+ </b>students through centralized <b>digital workflows</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.791895873074578",
+              "text": "<b>Redesigned</b> new <b>student</b> <b>onboarding</b> to compress the manual <b>registration</b> <b>TAT</b> from <b>3-4</b> <b>hrs</b> <b>to</b> <b>20-30</b> <b>mins</b>"
+            }
+          ],
+          "id": "por-1786913073490-1786968071754",
+          "role": "\n\nStudent Affairs,\nIIM Mumbai\n\n",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "type": "por",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.7103366369845845",
+              "text": "Elected <b>class representative</b> from <b>150+ peers</b>; enabled strong faculty-student ties and resolved issues effectively"
+            },
+            {
+              "hidden": false,
+              "id": "0.9748809329053012",
+              "text": "Assisted <b>160</b> juniors during the <b>orientation</b> by organizing <b>academic</b> support sessions to facilitate their transition"
+            }
+          ],
+          "id": "por-1786913092297-1786968075322",
+          "role": "\n\nCR, Comp Dept\n\n\n",
+          "tags": [
+            "finalised"
+          ],
+          "type": "por",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.717873220456625",
+              "text": "Drove <b>eco-health drives in 10+ villages</b>, impacting <b>3K+</b> lives via kit distribution, planting &amp; awareness drives"
+            },
+            {
+              "hidden": false,
+              "id": "0.47450585183947847",
+              "text": "Increased the <b>Footfall by 27%</b> through promoting a <b>Blood Donatio</b>n camp held by regional police authorities"
+            }
+          ],
+          "id": "por-1-1786968077067",
+          "role": "\n\nEvent Head,\nSocial Impact\n\n",
+          "tags": [
+            "finalised"
+          ],
+          "type": "por",
+          "years": "<br>"
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.2976250661305557",
+              "text": "Achieved <b>20%</b> surplus on <b>\u20b975K</b> Samiksha fest budget through precise tracking &amp; strategic vendor collaboration"
+            },
+            {
+              "hidden": false,
+              "id": "0.8043565486846929",
+              "text": "Executed <b>Freshers\u2019 Program</b> for <b>300+ attendee</b>s, optimizing costs and coordinating <b>20+ vendor</b> partnerships"
+            },
+            {
+              "hidden": false,
+              "id": "0.9807201405450338",
+              "text": "<b>Organized</b> section wars&nbsp;events, managed equipment &amp; scheduling, contributing to <b>100%</b> event completion rate"
+            }
+          ],
+          "id": "por-1786937981018-1786968078230",
+          "role": "\n\nStudent Council,\nSVR\n\n",
+          "tags": [
+            "finalised"
+          ],
+          "type": "por",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.05896789627450949",
+              "text": "Developed <b>AnyLogistix</b> <b>simulation</b> models for <b>network</b> <b>optimization</b> and <b>scenario</b> <b>analysis</b> in supply chains"
+            },
+            {
+              "hidden": false,
+              "id": "0.9184353127137452",
+              "text": "Developed AnyLogistix simulation for <b>automotive</b> network <b>optimization</b> &amp; scenario analysis for <b>Tata Motors</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8043613171771732",
+              "text": "Enabled <b>30+ Tata Motors executives</b> to evaluate network trade-offs through hands-on supply chain simulation"
+            },
+            {
+              "hidden": false,
+              "id": "0.17562176161693266",
+              "text": "Developed <b>GenAI</b> <b>powered</b> <b>prototype</b> for <b>CMA</b> <b>CGM</b>, validating maritime logistics decision-support use cases"
+            }
+          ],
+          "category": "\n\nIIM Mumbai\nSRIC\n\n",
+          "id": "awa-1-1786968081120",
+          "tags": [
+            "finalised",
+            "iim-mumbai"
+          ],
+          "type": "award",
+          "years": "<br>"
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.9774274952630837",
+              "text": "Led distribution of <b>2K+ safety kits</b> across <b>10+ villages,</b> driving health and last-mile delivery as <b>Outreach Lead</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.8305765188072389",
+              "text": "Secured <b>1st Runner-up </b>among <b>16 teams </b>and 180+ players in a regional-level inter-college kabaddi tournament"
+            },
+            {
+              "hidden": false,
+              "id": "0.6001361945266529",
+              "text": "Led <b>anti-ragging campaign</b> with local <b>Police</b>, sensitizing <b>1K+ students </b>and boosting campus safety awareness"
+            },
+            {
+              "hidden": false,
+              "id": "0.49274843863538753",
+              "text": "Conceptualized and led an <b>anti smoking&nbsp;</b>drive in <b>schools</b>, engaging <b>400+</b> students through interactive content"
+            },
+            {
+              "hidden": false,
+              "id": "0.5367047605352826",
+              "text": "Led <b>World Environment Day</b>, organizing plantation drives, and eco-pledges engaging<b> 700+ </b>students &amp; locals"
+            },
+            {
+              "hidden": false,
+              "id": "0.6480726697075119",
+              "text": "Spearheaded a <b>Green India Mission campaign</b>, planting <b>300+</b> saplings &amp; hosting eco-literacy sessions for <b>500+</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.27052410321925535",
+              "text": "Contributed to <b>eco-awareness</b> drives on waste management engaging <b>800+ students</b> using sustainable practices"
+            },
+            {
+              "hidden": false,
+              "id": "0.09725267871321164",
+              "text": "Debated <b>Yoga vs Other Sports on Sports Day</b>, advocated yoga\u2019s core benefits, praised for clarity and balance"
+            },
+            {
+              "hidden": false,
+              "id": "0.049552143913606406",
+              "text": "Debated on <b>Online vs Offline Classes Pros &amp; Cons</b> appreciated for balanced views &amp; relevant real life example"
+            }
+          ],
+          "category": "\n\nExtra Curriculars\n\n",
+          "id": "awa-1786938039528-1786968082862",
+          "tags": [
+            "finalised"
+          ],
+          "type": "award",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.16060089219228202",
+              "text": "Awarded top grade out of <b>120+</b> for building <b>interactive Python apps </b>with <b>Tkinter</b>, such as <b>digital notepad</b>"
+            },
+            {
+              "hidden": false,
+              "id": "0.45859975363612226",
+              "text": "Ranked in top <b>15% of 150+ </b>students with O &amp; A+ grades in <b>18 core courses</b>, showcasing strong academic rigor"
+            }
+          ],
+          "category": "\n\nAcademics\n\n",
+          "id": "awa-1786938040138-1786968084580",
+          "tags": [
+            "finalised"
+          ],
+          "type": "award",
+          "years": ""
+        },
+        {
+          "bullets": [
+            {
+              "hidden": false,
+              "id": "0.01162519239846882",
+              "text": "Completed <b>Unilever's Supply Chain Management and Analytic</b>s a online course offered through Coursera"
+            },
+            {
+              "hidden": false,
+              "id": "0.6917417209958312",
+              "text": "Completed Data Analysts Toolbox: <b>Excel</b>, <b>Python</b>, <b>Power</b> <b>BI</b>, <b>PivotTables</b>, a data analysis course from Udemy"
+            },
+            {
+              "hidden": false,
+              "id": "0.36559652365417883",
+              "text": "Completed <b>IMD\u2019s Sustainability for Business: ESG Fundamentals</b> a online course offered through Coursera"
+            }
+          ],
+          "category": "\n\nCertifications\n\n",
+          "id": "awa-1786938281922-1786968086069",
+          "tags": [
+            "finalised"
+          ],
+          "type": "award",
+          "years": ""
+        }
+      ],
+      "id": "cv-1786968041702",
+      "name": "ALL IN"
+    }
+  ],
+  "currentCvId": "default",
+  "academics": [
+    {
+      "degree": "MBA",
+      "institute": "Indian Institute of Management, Mumbai",
+      "score": "71.10%",
+      "year": "2027"
+    },
+    {
+      "degree": "B.Sc (Computer Science)",
+      "institute": "SVR Degree College, Sattenapalli",
+      "score": "76.46%",
+      "year": "2025"
+    },
+    {
+      "degree": "Class XII",
+      "institute": "FIITJEE Junior College, Vijayawada",
+      "score": "84.30%",
+      "year": "2021"
+    },
+    {
+      "degree": "Class X",
+      "institute": "Jawahar Navodaya Vidyalaya, Maddirala",
+      "score": "80.02%",
+      "year": "2019"
+    }
+  ],
+  "headerData": {
+    "banner": "AnyLogistix | Power BI | 3D Artist | Botanophile",
+    "line1": "Male, 21 years",
+    "line2": "MBA, Batch 25 - 27",
+    "name": "Aravind Tupakula"
+  },
+  "piLibraryBlocks": [],
+  "piActiveBlocks": []
+}
